@@ -1,0 +1,1876 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+  <meta charset="utf-8" />
+  <title>TMX | Responsive Web Admin App with AngularJS And Bootstrap</title>
+  <meta name="description" content="app, web app, responsive, responsive layout, admin, admin panel, admin dashboard, flat, flat ui, ui kit, AngularJS, ui route, charts, widgets, components" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+
+   <link rel="stylesheet" href="styles/animate.css/animate.css" type="text/css" />
+
+   <link rel="stylesheet" href="styles/material-design-icons.css" type="text/css" />
+   <link rel="stylesheet" href="styles/angular-material.css" type="text/css" />
+     <link rel="stylesheet" href="styles/font-awesome/css/font-awesome.css" type="text/css" />
+   <link rel="stylesheet" href="styles/app.min.css" type="text/css" />
+
+
+  <!-- ========= Angular Script ======== -->
+  <script src= "scripts/angular.js"></script>
+  <script src= "scripts/angular-material.js"></script>
+  <script src= "scripts/angular-messages.js"></script>
+  <script src= "scripts/angular-animate.js"></script>
+  <script src= "scripts/angular-aria.js"></script>
+
+  <script>
+	angular.module('settings', ['ngMaterial', 'ngMessages'])
+
+  /**
+   *  Simple controller to build a `user` data model
+   *  that will be used to databinding with `<tf-float>` directives
+   */
+  .controller('settingsController', function($scope) {$scope.project = {
+       Agent:     "Owais Hasan",
+       Schemes:     "Fazaia Housing",
+	   title:     "Technical Program Manager",
+       email:     "ipsum@lorem.com",
+       firstName: "",
+       lastName:  "" ,
+       company:   "Google" ,
+       address:   "1600 Amphitheatre Pkwy" ,
+       city:      "Mountain View" ,
+       state:     "CA" ,
+       country:   "USA" ,
+       postalCode : "94043",
+	   rate : ""
+    };
+  $scope.options = [
+          "Switch",
+		  "Radio Button",
+		  "Checkbox",
+		  "Text",
+		  "Date",
+		  "Number"
+      ];
+	  $scope.opt="";
+	  $scope.opt1="";
+	  $scope.opt2="";
+	  $scope.opt3="";
+	  $scope.opt4="";
+	  $scope.opt5="";
+	  $scope.opt6="";
+	  $scope.opt7="";
+	  $scope.opt8="";
+	  $scope.opt9="";
+	  $scope.opt10="";
+
+	  $scope.Show=function()
+	  {	
+		if($scope.opt=="Radio Button")
+		{
+			document.getElementById('radiobutton').style.display = 'block';
+			document.getElementById('switch').style.display = 'none';
+			document.getElementById('button').style.display = 'none';
+			document.getElementById('input').style.display = 'none';
+			document.getElementById('checkbox').style.display = 'none';
+			document.getElementById('date').style.display = 'none';
+			document.getElementById('number').style.display = 'none';
+		}
+		else if($scope.opt=="Switch")
+		{
+			document.getElementById('switch').style.display = 'block';
+			document.getElementById('radiobutton').style.display = 'none';
+			document.getElementById('button').style.display = 'none';
+			document.getElementById('input').style.display = 'none';
+			document.getElementById('checkbox').style.display = 'none';
+			document.getElementById('date').style.display = 'none';
+			document.getElementById('number').style.display = 'none';
+		}
+		else if($scope.opt=="Button")
+		{
+			document.getElementById('button').style.display = 'block';
+			document.getElementById('radiobutton').style.display = 'none';
+			document.getElementById('switch').style.display = 'none';
+			document.getElementById('checkbox').style.display = 'none';
+			document.getElementById('input').style.display = 'none';
+			document.getElementById('date').style.display = 'none';
+			document.getElementById('number').style.display = 'none';
+		}
+		else if($scope.opt=="Checkbox")
+		{
+			document.getElementById('checkbox').style.display = 'block';
+			document.getElementById('radiobutton').style.display = 'none';
+			document.getElementById('switch').style.display = 'none';
+			document.getElementById('button').style.display = 'none';
+			document.getElementById('input').style.display = 'none';
+			document.getElementById('date').style.display = 'none';
+			document.getElementById('number').style.display = 'none';
+		}
+		else if($scope.opt=="Text")
+		{
+			document.getElementById('input').style.display = 'block';
+			document.getElementById('radiobutton').style.display = 'none';
+			document.getElementById('switch').style.display = 'none';
+			document.getElementById('button').style.display = 'none';
+			document.getElementById('checkbox').style.display = 'none';
+			document.getElementById('date').style.display = 'none';
+			document.getElementById('number').style.display = 'none';
+		}
+		else if($scope.opt=="Date")
+		{
+			document.getElementById('date').style.display = 'block';
+			document.getElementById('radiobutton').style.display = 'none';
+			document.getElementById('switch').style.display = 'none';
+			document.getElementById('button').style.display = 'none';
+			document.getElementById('checkbox').style.display = 'none';
+			document.getElementById('input').style.display = 'none';
+			document.getElementById('number').style.display = 'none';
+		}
+		else if($scope.opt=="Number")
+		{
+			document.getElementById('number').style.display = 'block';
+			document.getElementById('radiobutton').style.display = 'none';
+			document.getElementById('switch').style.display = 'none';
+			document.getElementById('button').style.display = 'none';
+			document.getElementById('input').style.display = 'none';
+			document.getElementById('date').style.display = 'none';
+			document.getElementById('checbox').style.display = 'none';
+		}
+	  }
+	  $scope.Show1=function()
+	  {	
+		if($scope.opt1=="Radio Button")
+		{
+			document.getElementById('radiobutton1').style.display = 'block';
+			document.getElementById('switch1').style.display = 'none';
+			document.getElementById('button1').style.display = 'none';
+			document.getElementById('input1').style.display = 'none';
+			document.getElementById('checkbox1').style.display = 'none';
+			document.getElementById('date1').style.display = 'none';
+			document.getElementById('number1').style.display = 'none';
+		}
+		else if($scope.opt1=="Switch")
+		{
+			document.getElementById('switch1').style.display = 'block';
+			document.getElementById('radiobutton1').style.display = 'none';
+			document.getElementById('button1').style.display = 'none';
+			document.getElementById('input1').style.display = 'none';
+			document.getElementById('checkbox1').style.display = 'none';
+			document.getElementById('date1').style.display = 'none';
+			document.getElementById('number1').style.display = 'none';
+		}
+		else if($scope.opt1=="Button")
+		{
+			document.getElementById('button1').style.display = 'block';
+			document.getElementById('radiobutton1').style.display = 'none';
+			document.getElementById('switch1').style.display = 'none';
+			document.getElementById('checkbox1').style.display = 'none';
+			document.getElementById('input1').style.display = 'none';
+			document.getElementById('date1').style.display = 'none';
+			document.getElementById('number1').style.display = 'none';
+		}
+		else if($scope.opt1=="Checkbox")
+		{
+			document.getElementById('checkbox1').style.display = 'block';
+			document.getElementById('radiobutton1').style.display = 'none';
+			document.getElementById('switch1').style.display = 'none';
+			document.getElementById('button1').style.display = 'none';
+			document.getElementById('input1').style.display = 'none';
+			document.getElementById('date1').style.display = 'none';
+			document.getElementById('number1').style.display = 'none';
+		}
+			else if($scope.opt1=="Text")
+		{
+			document.getElementById('input1').style.display = 'block';
+			document.getElementById('radiobutton1').style.display = 'none';
+			document.getElementById('switch1').style.display = 'none';
+			document.getElementById('button1').style.display = 'none';
+			document.getElementById('checkbox1').style.display = 'none';
+			document.getElementById('date1').style.display = 'none';
+			document.getElementById('number1').style.display = 'none';
+		}
+		else if($scope.opt1=="Date")
+		{
+			document.getElementById('date1').style.display = 'block';
+			document.getElementById('radiobutton1').style.display = 'none';
+			document.getElementById('switch1').style.display = 'none';
+			document.getElementById('button1').style.display = 'none';
+			document.getElementById('checkbox1').style.display = 'none';
+			document.getElementById('input1').style.display = 'none';
+			document.getElementById('number1').style.display = 'none';
+		}
+		else if($scope.opt1=="Number")
+		{
+			document.getElementById('number1').style.display = 'block';
+			document.getElementById('radiobutton1').style.display = 'none';
+			document.getElementById('switch1').style.display = 'none';
+			document.getElementById('button1').style.display = 'none';
+			document.getElementById('input1').style.display = 'none';
+			document.getElementById('date1').style.display = 'none';
+			document.getElementById('checbox1').style.display = 'none';
+		}
+	  }
+	  $scope.Show2=function()
+	  {	
+		if($scope.opt2=="Radio Button")
+		{
+			document.getElementById('radiobutton2').style.display = 'block';
+			document.getElementById('switch2').style.display = 'none';
+			document.getElementById('button2').style.display = 'none';
+			document.getElementById('input2').style.display = 'none';
+			document.getElementById('checkbox2').style.display = 'none';
+			document.getElementById('date2').style.display = 'none';
+			document.getElementById('number2').style.display = 'none';
+		}
+		else if($scope.opt2=="Switch")
+		{
+			document.getElementById('switch2').style.display = 'block';
+			document.getElementById('radiobutton2').style.display = 'none';
+			document.getElementById('button2').style.display = 'none';
+			document.getElementById('input2').style.display = 'none';
+			document.getElementById('checkbox2').style.display = 'none';
+			document.getElementById('date2').style.display = 'none';
+			document.getElementById('number2').style.display = 'none';
+		}
+		else if($scope.opt2=="Button")
+		{
+			document.getElementById('button2').style.display = 'block';
+			document.getElementById('radiobutton2').style.display = 'none';
+			document.getElementById('switch2').style.display = 'none';
+			document.getElementById('checkbox2').style.display = 'none';
+			document.getElementById('input2').style.display = 'none';
+			document.getElementById('date2').style.display = 'none';
+			document.getElementById('number2').style.display = 'none';
+		}
+		else if($scope.opt2=="Checkbox")
+		{
+			document.getElementById('checkbox2').style.display = 'block';
+			document.getElementById('radiobutton2').style.display = 'none';
+			document.getElementById('switch2').style.display = 'none';
+			document.getElementById('button2').style.display = 'none';
+			document.getElementById('input2').style.display = 'none';
+			document.getElementById('date2').style.display = 'none';
+			document.getElementById('number2').style.display = 'none';
+		}
+			else if($scope.opt2=="Text")
+		{
+			document.getElementById('input2').style.display = 'block';
+			document.getElementById('radiobutton2').style.display = 'none';
+			document.getElementById('switch2').style.display = 'none';
+			document.getElementById('button2').style.display = 'none';
+			document.getElementById('checkbox2').style.display = 'none';
+			document.getElementById('date2').style.display = 'none';
+			document.getElementById('number2').style.display = 'none';
+		}
+		else if($scope.opt2=="Date")
+		{
+			document.getElementById('date2').style.display = 'block';
+			document.getElementById('radiobutton2').style.display = 'none';
+			document.getElementById('switch2').style.display = 'none';
+			document.getElementById('button2').style.display = 'none';
+			document.getElementById('checkbox2').style.display = 'none';
+			document.getElementById('input2').style.display = 'none';
+			document.getElementById('number2').style.display = 'none';
+		}
+		else if($scope.opt2=="Number")
+		{
+			document.getElementById('number2').style.display = 'block';
+			document.getElementById('radiobutton2').style.display = 'none';
+			document.getElementById('switch2').style.display = 'none';
+			document.getElementById('button2').style.display = 'none';
+			document.getElementById('input2').style.display = 'none';
+			document.getElementById('date2').style.display = 'none';
+			document.getElementById('checbox2').style.display = 'none';
+		}
+	  }
+	  $scope.Show3=function()
+	  {	
+		if($scope.opt3=="Radio Button")
+		{
+			document.getElementById('radiobutton3').style.display = 'block';
+			document.getElementById('switch3').style.display = 'none';
+			document.getElementById('button3').style.display = 'none';
+			document.getElementById('input3').style.display = 'none';
+			document.getElementById('checkbox3').style.display = 'none';
+			document.getElementById('date3').style.display = 'none';
+			document.getElementById('number3').style.display = 'none';
+		}
+		else if($scope.opt3=="Switch")
+		{
+			document.getElementById('switch3').style.display = 'block';
+			document.getElementById('radiobutton3').style.display = 'none';
+			document.getElementById('button3').style.display = 'none';
+			document.getElementById('input3').style.display = 'none';
+			document.getElementById('checkbox3').style.display = 'none';
+			document.getElementById('date3').style.display = 'none';
+			document.getElementById('number3').style.display = 'none';
+		}
+		else if($scope.opt3=="Button")
+		{
+			document.getElementById('button3').style.display = 'block';
+			document.getElementById('radiobutton3').style.display = 'none';
+			document.getElementById('switch3').style.display = 'none';
+			document.getElementById('checkbox3').style.display = 'none';
+			document.getElementById('input3').style.display = 'none';
+			document.getElementById('date3').style.display = 'none';
+			document.getElementById('number3').style.display = 'none';
+		}
+		else if($scope.opt3=="Checkbox")
+		{
+			document.getElementById('checkbox3').style.display = 'block';
+			document.getElementById('radiobutton3').style.display = 'none';
+			document.getElementById('switch3').style.display = 'none';
+			document.getElementById('button3').style.display = 'none';
+			document.getElementById('input3').style.display = 'none';
+			document.getElementById('date3').style.display = 'none';
+			document.getElementById('number3').style.display = 'none';
+		}
+			else if($scope.opt3=="Text")
+		{
+			document.getElementById('input3').style.display = 'block';
+			document.getElementById('radiobutton3').style.display = 'none';
+			document.getElementById('switch3').style.display = 'none';
+			document.getElementById('button3').style.display = 'none';
+			document.getElementById('checkbox3').style.display = 'none';
+			document.getElementById('date3').style.display = 'none';
+			document.getElementById('number3').style.display = 'none';
+		}
+		else if($scope.opt3=="Date")
+		{
+			document.getElementById('date3').style.display = 'block';
+			document.getElementById('radiobutton3').style.display = 'none';
+			document.getElementById('switch3').style.display = 'none';
+			document.getElementById('button3').style.display = 'none';
+			document.getElementById('checkbox3').style.display = 'none';
+			document.getElementById('input3').style.display = 'none';
+			document.getElementById('number3').style.display = 'none';
+		}
+		else if($scope.opt3=="Number")
+		{
+			document.getElementById('number3').style.display = 'block';
+			document.getElementById('radiobutton3').style.display = 'none';
+			document.getElementById('switch3').style.display = 'none';
+			document.getElementById('button3').style.display = 'none';
+			document.getElementById('input3').style.display = 'none';
+			document.getElementById('date3').style.display = 'none';
+			document.getElementById('checbox3').style.display = 'none';
+		}
+	  }
+	  $scope.Show4=function()
+	  {	
+		if($scope.opt4=="Radio Button")
+		{
+			document.getElementById('radiobutton4').style.display = 'block';
+			document.getElementById('switch4').style.display = 'none';
+			document.getElementById('button4').style.display = 'none';
+			document.getElementById('input4').style.display = 'none';
+			document.getElementById('checkbox4').style.display = 'none';
+			document.getElementById('date4').style.display = 'none';
+			document.getElementById('number4').style.display = 'none';
+		}
+		else if($scope.opt4=="Switch")
+		{
+			document.getElementById('switch4').style.display = 'block';
+			document.getElementById('radiobutton4').style.display = 'none';
+			document.getElementById('button4').style.display = 'none';
+			document.getElementById('input4').style.display = 'none';
+			document.getElementById('checkbox4').style.display = 'none';
+			document.getElementById('date4').style.display = 'none';
+			document.getElementById('number4').style.display = 'none';
+		}
+		else if($scope.opt4=="Button")
+		{
+			document.getElementById('button4').style.display = 'block';
+			document.getElementById('radiobutton4').style.display = 'none';
+			document.getElementById('switch4').style.display = 'none';
+			document.getElementById('checkbox4').style.display = 'none';
+			document.getElementById('input4').style.display = 'none';
+			document.getElementById('date4').style.display = 'none';
+			document.getElementById('number4').style.display = 'none';
+		}
+		else if($scope.opt4=="Checkbox")
+		{
+			document.getElementById('checkbox4').style.display = 'block';
+			document.getElementById('radiobutton4').style.display = 'none';
+			document.getElementById('switch4').style.display = 'none';
+			document.getElementById('button4').style.display = 'none';
+			document.getElementById('input4').style.display = 'none';
+			document.getElementById('date4').style.display = 'none';
+			document.getElementById('number4').style.display = 'none';
+		}
+			else if($scope.opt4=="Text")
+		{
+			document.getElementById('input4').style.display = 'block';
+			document.getElementById('radiobutton4').style.display = 'none';
+			document.getElementById('switch4').style.display = 'none';
+			document.getElementById('button4').style.display = 'none';
+			document.getElementById('checkbox4').style.display = 'none';
+			document.getElementById('date4').style.display = 'none';
+			document.getElementById('number4').style.display = 'none';
+		}
+		else if($scope.opt4=="Date")
+		{
+			document.getElementById('date4').style.display = 'block';
+			document.getElementById('radiobutton4').style.display = 'none';
+			document.getElementById('switch4').style.display = 'none';
+			document.getElementById('button4').style.display = 'none';
+			document.getElementById('checkbox4').style.display = 'none';
+			document.getElementById('input4').style.display = 'none';
+			document.getElementById('number4').style.display = 'none';
+		}
+		else if($scope.opt4=="Number")
+		{
+			document.getElementById('number4').style.display = 'block';
+			document.getElementById('radiobutton4').style.display = 'none';
+			document.getElementById('switch4').style.display = 'none';
+			document.getElementById('button4').style.display = 'none';
+			document.getElementById('input4').style.display = 'none';
+			document.getElementById('date4').style.display = 'none';
+			document.getElementById('checbox4').style.display = 'none';
+		}
+	  }
+	  $scope.Show5=function()
+	  {	
+		if($scope.opt5=="Radio Button")
+		{
+			document.getElementById('radiobutton5').style.display = 'block';
+			document.getElementById('switch5').style.display = 'none';
+			document.getElementById('button5').style.display = 'none';
+			document.getElementById('input5').style.display = 'none';
+			document.getElementById('checkbox5').style.display = 'none';
+			document.getElementById('date5').style.display = 'none';
+			document.getElementById('number5').style.display = 'none';
+		}
+		else if($scope.opt5=="Switch")
+		{
+			document.getElementById('switch5').style.display = 'block';
+			document.getElementById('radiobutton5').style.display = 'none';
+			document.getElementById('button5').style.display = 'none';
+			document.getElementById('input5').style.display = 'none';
+			document.getElementById('checkbox5').style.display = 'none';
+			document.getElementById('date5').style.display = 'none';
+			document.getElementById('number5').style.display = 'none';
+		}
+		else if($scope.opt5=="Button")
+		{
+			document.getElementById('button5').style.display = 'block';
+			document.getElementById('radiobutton5').style.display = 'none';
+			document.getElementById('switch5').style.display = 'none';
+			document.getElementById('checkbox5').style.display = 'none';
+			document.getElementById('input5').style.display = 'none';
+			document.getElementById('date5').style.display = 'none';
+			document.getElementById('number5').style.display = 'none';
+		}
+		else if($scope.opt5=="Checkbox")
+		{
+			document.getElementById('checkbox5').style.display = 'block';
+			document.getElementById('radiobutton5').style.display = 'none';
+			document.getElementById('switch5').style.display = 'none';
+			document.getElementById('button5').style.display = 'none';
+			document.getElementById('input5').style.display = 'none';
+			document.getElementById('date5').style.display = 'none';
+			document.getElementById('number5').style.display = 'none';
+		}
+			else if($scope.opt5=="Text")
+		{
+			document.getElementById('input5').style.display = 'block';
+			document.getElementById('radiobutton5').style.display = 'none';
+			document.getElementById('switch5').style.display = 'none';
+			document.getElementById('button5').style.display = 'none';
+			document.getElementById('checkbox5').style.display = 'none';
+			document.getElementById('date5').style.display = 'none';
+			document.getElementById('number5').style.display = 'none';
+		}
+		else if($scope.opt5=="Date")
+		{
+			document.getElementById('date5').style.display = 'block';
+			document.getElementById('radiobutton5').style.display = 'none';
+			document.getElementById('switch5').style.display = 'none';
+			document.getElementById('button5').style.display = 'none';
+			document.getElementById('checkbox5').style.display = 'none';
+			document.getElementById('input5').style.display = 'none';
+			document.getElementById('number5').style.display = 'none';
+		}
+		else if($scope.opt5=="Number")
+		{
+			document.getElementById('number5').style.display = 'block';
+			document.getElementById('radiobutton5').style.display = 'none';
+			document.getElementById('switch5').style.display = 'none';
+			document.getElementById('button5').style.display = 'none';
+			document.getElementById('input5').style.display = 'none';
+			document.getElementById('date5').style.display = 'none';
+			document.getElementById('checbox5').style.display = 'none';
+		}
+	  }
+	  $scope.Show6=function()
+	  {	
+		if($scope.opt6=="Radio Button")
+		{
+			document.getElementById('radiobutton6').style.display = 'block';
+			document.getElementById('switch6').style.display = 'none';
+			document.getElementById('button6').style.display = 'none';
+			document.getElementById('input6').style.display = 'none';
+			document.getElementById('checkbox6').style.display = 'none';
+			document.getElementById('date6').style.display = 'none';
+			document.getElementById('number6').style.display = 'none';
+		}
+		else if($scope.opt6=="Switch")
+		{
+			document.getElementById('switch6').style.display = 'block';
+			document.getElementById('radiobutton6').style.display = 'none';
+			document.getElementById('button6').style.display = 'none';
+			document.getElementById('input6').style.display = 'none';
+			document.getElementById('checkbox6').style.display = 'none';
+			document.getElementById('date6').style.display = 'none';
+			document.getElementById('number6').style.display = 'none';
+		}
+		else if($scope.opt6=="Button")
+		{
+			document.getElementById('button6').style.display = 'block';
+			document.getElementById('radiobutton6').style.display = 'none';
+			document.getElementById('switch6').style.display = 'none';
+			document.getElementById('checkbox6').style.display = 'none';
+			document.getElementById('input6').style.display = 'none';
+			document.getElementById('date6').style.display = 'none';
+			document.getElementById('number6').style.display = 'none';
+		}
+		else if($scope.opt6=="Checkbox")
+		{
+			document.getElementById('checkbox6').style.display = 'block';
+			document.getElementById('radiobutton6').style.display = 'none';
+			document.getElementById('switch6').style.display = 'none';
+			document.getElementById('button6').style.display = 'none';
+			document.getElementById('input6').style.display = 'none';
+			document.getElementById('date6').style.display = 'none';
+			document.getElementById('number6').style.display = 'none';
+		}
+			else if($scope.opt6=="Text")
+		{
+			document.getElementById('input6').style.display = 'block';
+			document.getElementById('radiobutton6').style.display = 'none';
+			document.getElementById('switch6').style.display = 'none';
+			document.getElementById('button6').style.display = 'none';
+			document.getElementById('checkbox6').style.display = 'none';
+			document.getElementById('date6').style.display = 'none';
+			document.getElementById('number6').style.display = 'none';
+		}
+		else if($scope.opt6=="Date")
+		{
+			document.getElementById('date6').style.display = 'block';
+			document.getElementById('radiobutton6').style.display = 'none';
+			document.getElementById('switch6').style.display = 'none';
+			document.getElementById('button6').style.display = 'none';
+			document.getElementById('checkbox6').style.display = 'none';
+			document.getElementById('input6').style.display = 'none';
+			document.getElementById('number6').style.display = 'none';
+		}
+		else if($scope.opt6=="Number")
+		{
+			document.getElementById('number6').style.display = 'block';
+			document.getElementById('radiobutton6').style.display = 'none';
+			document.getElementById('switch6').style.display = 'none';
+			document.getElementById('button6').style.display = 'none';
+			document.getElementById('input6').style.display = 'none';
+			document.getElementById('date6').style.display = 'none';
+			document.getElementById('checbox6').style.display = 'none';
+		}
+	  }
+	  $scope.Show7=function()
+	  {	
+		if($scope.opt7=="Radio Button")
+		{
+			document.getElementById('radiobutton7').style.display = 'block';
+			document.getElementById('switch7').style.display = 'none';
+			document.getElementById('button7').style.display = 'none';
+			document.getElementById('input7').style.display = 'none';
+			document.getElementById('checkbox7').style.display = 'none';
+			document.getElementById('date7').style.display = 'none';
+			document.getElementById('number7').style.display = 'none';
+		}
+		else if($scope.opt7=="Switch")
+		{
+			document.getElementById('switch7').style.display = 'block';
+			document.getElementById('radiobutton7').style.display = 'none';
+			document.getElementById('button7').style.display = 'none';
+			document.getElementById('input7').style.display = 'none';
+			document.getElementById('checkbox7').style.display = 'none';
+			document.getElementById('date7').style.display = 'none';
+			document.getElementById('number7').style.display = 'none';
+		}
+		else if($scope.opt7=="Button")
+		{
+			document.getElementById('button7').style.display = 'block';
+			document.getElementById('radiobutton7').style.display = 'none';
+			document.getElementById('switch7').style.display = 'none';
+			document.getElementById('checkbox7').style.display = 'none';
+			document.getElementById('input7').style.display = 'none';
+			document.getElementById('date7').style.display = 'none';
+			document.getElementById('number7').style.display = 'none';
+		}
+		else if($scope.opt7=="Checkbox")
+		{
+			document.getElementById('checkbox7').style.display = 'block';
+			document.getElementById('radiobutton7').style.display = 'none';
+			document.getElementById('switch7').style.display = 'none';
+			document.getElementById('button7').style.display = 'none';
+			document.getElementById('input7').style.display = 'none';
+			document.getElementById('date7').style.display = 'none';
+			document.getElementById('number7').style.display = 'none';
+		}
+			else if($scope.opt7=="Text")
+		{
+			document.getElementById('input7').style.display = 'block';
+			document.getElementById('radiobutton7').style.display = 'none';
+			document.getElementById('switch7').style.display = 'none';
+			document.getElementById('button7').style.display = 'none';
+			document.getElementById('checkbox7').style.display = 'none';
+			document.getElementById('date7').style.display = 'none';
+			document.getElementById('number7').style.display = 'none';
+		}
+		else if($scope.opt7=="Date")
+		{
+			document.getElementById('date7').style.display = 'block';
+			document.getElementById('radiobutton7').style.display = 'none';
+			document.getElementById('switch7').style.display = 'none';
+			document.getElementById('button7').style.display = 'none';
+			document.getElementById('checkbox7').style.display = 'none';
+			document.getElementById('input7').style.display = 'none';
+			document.getElementById('number7').style.display = 'none';
+		}
+		else if($scope.opt7=="Number")
+		{
+			document.getElementById('number7').style.display = 'block';
+			document.getElementById('radiobutton7').style.display = 'none';
+			document.getElementById('switch7').style.display = 'none';
+			document.getElementById('button7').style.display = 'none';
+			document.getElementById('input7').style.display = 'none';
+			document.getElementById('date7').style.display = 'none';
+			document.getElementById('checbox7').style.display = 'none';
+		}
+	  }
+	  $scope.Show8=function()
+	  {	
+		if($scope.opt8=="Radio Button")
+		{
+			document.getElementById('radiobutton8').style.display = 'block';
+			document.getElementById('switch8').style.display = 'none';
+			document.getElementById('button8').style.display = 'none';
+			document.getElementById('input8').style.display = 'none';
+			document.getElementById('checkbox8').style.display = 'none';
+			document.getElementById('date8').style.display = 'none';
+			document.getElementById('number8').style.display = 'none';
+		}
+		else if($scope.opt8=="Switch")
+		{
+			document.getElementById('switch8').style.display = 'block';
+			document.getElementById('radiobutton8').style.display = 'none';
+			document.getElementById('button8').style.display = 'none';
+			document.getElementById('input8').style.display = 'none';
+			document.getElementById('checkbox8').style.display = 'none';
+			document.getElementById('date8').style.display = 'none';
+			document.getElementById('number8').style.display = 'none';
+		}
+		else if($scope.opt8=="Button")
+		{
+			document.getElementById('button8').style.display = 'block';
+			document.getElementById('radiobutton8').style.display = 'none';
+			document.getElementById('switch8').style.display = 'none';
+			document.getElementById('checkbox8').style.display = 'none';
+			document.getElementById('input8').style.display = 'none';
+			document.getElementById('date8').style.display = 'none';
+			document.getElementById('number8').style.display = 'none';
+		}
+		else if($scope.opt8=="Checkbox")
+		{
+			document.getElementById('checkbox8').style.display = 'block';
+			document.getElementById('radiobutton8').style.display = 'none';
+			document.getElementById('switch8').style.display = 'none';
+			document.getElementById('button8').style.display = 'none';
+			document.getElementById('input8').style.display = 'none';
+			document.getElementById('date8').style.display = 'none';
+			document.getElementById('number8').style.display = 'none';
+		}
+			else if($scope.opt8=="Text")
+		{
+			document.getElementById('input8').style.display = 'block';
+			document.getElementById('radiobutton8').style.display = 'none';
+			document.getElementById('switch8').style.display = 'none';
+			document.getElementById('button8').style.display = 'none';
+			document.getElementById('checkbox8').style.display = 'none';
+			document.getElementById('date8').style.display = 'none';
+			document.getElementById('number8').style.display = 'none';
+		}
+		else if($scope.opt8=="Date")
+		{
+			document.getElementById('date8').style.display = 'block';
+			document.getElementById('radiobutton8').style.display = 'none';
+			document.getElementById('switch8').style.display = 'none';
+			document.getElementById('button8').style.display = 'none';
+			document.getElementById('checkbox8').style.display = 'none';
+			document.getElementById('input8').style.display = 'none';
+			document.getElementById('number8').style.display = 'none';
+		}
+		else if($scope.opt8=="Number")
+		{
+			document.getElementById('number8').style.display = 'block';
+			document.getElementById('radiobutton8').style.display = 'none';
+			document.getElementById('switch8').style.display = 'none';
+			document.getElementById('button8').style.display = 'none';
+			document.getElementById('input8').style.display = 'none';
+			document.getElementById('date8').style.display = 'none';
+			document.getElementById('checbox8').style.display = 'none';
+		}
+	  }
+	  $scope.Show9=function()
+	  {	
+		if($scope.opt9=="Radio Button")
+		{
+			document.getElementById('radiobutton9').style.display = 'block';
+			document.getElementById('switch9').style.display = 'none';
+			document.getElementById('button9').style.display = 'none';
+			document.getElementById('input9').style.display = 'none';
+			document.getElementById('checkbox9').style.display = 'none';
+			document.getElementById('date9').style.display = 'none';
+			document.getElementById('number9').style.display = 'none';
+		}
+		else if($scope.opt9=="Switch")
+		{
+			document.getElementById('switch9').style.display = 'block';
+			document.getElementById('radiobutton9').style.display = 'none';
+			document.getElementById('button9').style.display = 'none';
+			document.getElementById('input9').style.display = 'none';
+			document.getElementById('checkbox9').style.display = 'none';
+			document.getElementById('date9').style.display = 'none';
+			document.getElementById('number9').style.display = 'none';
+		}
+		else if($scope.opt9=="Button")
+		{
+			document.getElementById('button9').style.display = 'block';
+			document.getElementById('radiobutton9').style.display = 'none';
+			document.getElementById('switch9').style.display = 'none';
+			document.getElementById('checkbox9').style.display = 'none';
+			document.getElementById('input9').style.display = 'none';
+			document.getElementById('date9').style.display = 'none';
+			document.getElementById('number9').style.display = 'none';
+		}
+		else if($scope.opt9=="Checkbox")
+		{
+			document.getElementById('checkbox9').style.display = 'block';
+			document.getElementById('radiobutton9').style.display = 'none';
+			document.getElementById('switch9').style.display = 'none';
+			document.getElementById('button9').style.display = 'none';
+			document.getElementById('input9').style.display = 'none';
+			document.getElementById('date9').style.display = 'none';
+			document.getElementById('number9').style.display = 'none';
+		}
+			else if($scope.opt9=="Text")
+		{
+			document.getElementById('input9').style.display = 'block';
+			document.getElementById('radiobutton9').style.display = 'none';
+			document.getElementById('switch9').style.display = 'none';
+			document.getElementById('button9').style.display = 'none';
+			document.getElementById('checkbox9').style.display = 'none';
+			document.getElementById('date9').style.display = 'none';
+			document.getElementById('number9').style.display = 'none';
+		}
+		else if($scope.opt9=="Date")
+		{
+			document.getElementById('date9').style.display = 'block';
+			document.getElementById('radiobutton9').style.display = 'none';
+			document.getElementById('switch9').style.display = 'none';
+			document.getElementById('button9').style.display = 'none';
+			document.getElementById('checkbox9').style.display = 'none';
+			document.getElementById('input9').style.display = 'none';
+			document.getElementById('number9').style.display = 'none';
+		}
+		else if($scope.opt9=="Number")
+		{
+			document.getElementById('number9').style.display = 'block';
+			document.getElementById('radiobutton9').style.display = 'none';
+			document.getElementById('switch9').style.display = 'none';
+			document.getElementById('button').style.display = 'none';
+			document.getElementById('input9').style.display = 'none';
+			document.getElementById('date9').style.display = 'none';
+			document.getElementById('checbox9').style.display = 'none';
+		}
+	  }
+	  $scope.Show10=function()
+	  {	
+		if($scope.opt10=="Radio Button")
+		{
+			document.getElementById('radiobutton10').style.display = 'block';
+			document.getElementById('switch10').style.display = 'none';
+			document.getElementById('button10').style.display = 'none';
+			document.getElementById('input10').style.display = 'none';
+			document.getElementById('checkbox10').style.display = 'none';
+			document.getElementById('date10').style.display = 'none';
+			document.getElementById('number10').style.display = 'none';
+		}
+		else if($scope.opt10=="Switch")
+		{
+			document.getElementById('switch10').style.display = 'block';
+			document.getElementById('radiobutton10').style.display = 'none';
+			document.getElementById('button10').style.display = 'none';
+			document.getElementById('input10').style.display = 'none';
+			document.getElementById('checkbox10').style.display = 'none';
+			document.getElementById('date10').style.display = 'none';
+			document.getElementById('number10').style.display = 'none';
+		}
+		else if($scope.opt10=="Button")
+		{
+			document.getElementById('button10').style.display = 'block';
+			document.getElementById('radiobutton10').style.display = 'none';
+			document.getElementById('switch10').style.display = 'none';
+			document.getElementById('checkbox10').style.display = 'none';
+			document.getElementById('input10').style.display = 'none';
+			document.getElementById('date10').style.display = 'none';
+			document.getElementById('number10').style.display = 'none';
+		}
+		else if($scope.opt10=="Checkbox")
+		{
+			document.getElementById('checkbox10').style.display = 'block';
+			document.getElementById('radiobutton10').style.display = 'none';
+			document.getElementById('switch10').style.display = 'none';
+			document.getElementById('button10').style.display = 'none';
+			document.getElementById('input10').style.display = 'none';
+			document.getElementById('date10').style.display = 'none';
+			document.getElementById('number10').style.display = 'none';
+		}
+			else if($scope.opt10=="Text")
+		{
+			document.getElementById('input10').style.display = 'block';
+			document.getElementById('radiobutton10').style.display = 'none';
+			document.getElementById('switch10').style.display = 'none';
+			document.getElementById('button10').style.display = 'none';
+			document.getElementById('checkbox10').style.display = 'none';
+			document.getElementById('date10').style.display = 'none';
+			document.getElementById('number10').style.display = 'none';
+		}
+		else if($scope.opt10=="Date")
+		{
+			document.getElementById('date10').style.display = 'block';
+			document.getElementById('radiobutton10').style.display = 'none';
+			document.getElementById('switch10').style.display = 'none';
+			document.getElementById('button10').style.display = 'none';
+			document.getElementById('checkbox10').style.display = 'none';
+			document.getElementById('input10').style.display = 'none';
+			document.getElementById('number10').style.display = 'none';
+		}
+		else if($scope.opt10=="Number")
+		{
+			document.getElementById('number10').style.display = 'block';
+			document.getElementById('radiobutton10').style.display = 'none';
+			document.getElementById('switch10').style.display = 'none';
+			document.getElementById('button10').style.display = 'none';
+			document.getElementById('input10').style.display = 'none';
+			document.getElementById('date10').style.display = 'none';
+			document.getElementById('checbox10').style.display = 'none';
+		}
+	  }
+		
+  })
+	
+	</script>
+  
+</head>
+<body ng-app="settings" ng-controller="settingsController">
+<div class="app">
+  
+  <!-- aside -->
+  <aside id="aside" class="app-aside modal fade " role="menu">
+    <div class="left">
+      <div class="box bg-white">
+  <div class="navbar md-whiteframe-z1 no-radius green">
+      <!-- brand -->
+      <a style="display: block;    float: none;    min-height: 64px;    font-size: 20px;    font-weight: bold;
+    padding: 0 16px;    line-height: 64px;">
+	  
+        <img class="hidden-folded m-l inline" src="images/logo-white.png" alt="." style="max-height: 36px; vertical-align: -20%;">
+        
+      </a>
+      <!-- / brand -->
+  </div>
+  <div class="box-row">
+    <div class="box-cell scrollable hover">
+      <div class="box-inner">
+        <div class="p hidden-folded blue-50" style="background-image:url(images/bg.png); background-size:cover">
+          <div class="rounded w-64 bg-white inline pos-rlt">
+            <img src="images/a0.jpg" class="img-responsive rounded">
+          </div>
+          <a class="block m-t-sm"  target="#nav, #account"><!-- ui-toggle-class="hide, show" -->
+            <span class="block font-bold">Arsalan Ahmed</span>
+            <!--<span class="pull-right auto">
+              <i class="fa inline fa-caret-down"></i>
+              <i class="fa none fa-caret-up"></i>
+            </span>-->
+            arsalan@techlogix.com
+          </a>
+        </div>
+        <div id="nav">
+          <nav ui-nav>
+			  <ul class="nav">
+				<li class="nav-header m-v-sm hidden-folded">
+				  Menu
+				</li>
+				
+				<li>
+				<a md-ink-ripple="" href="dashboard.html">
+                        <i class="icon mdi-action-settings-input-svideo i-20"></i>
+                        <span class="font-normal">Dashboard</span>
+                      </a>
+				</li>
+				<li>
+				<a md-ink-ripple="">
+				<span class="pull-right text-muted">
+				
+                          <i class="fa fa-caret-down"></i>
+                        </span>
+						<!--<i class="pull-right up"><b class="badge no-bg">11</b></i>-->
+                        <i class="icon mdi-action-subject i-20"></i>
+                        <span class="font-normal">Master Data</span>
+                      </a>
+				  <ul class="nav nav-sub">
+				   <li><a md-ink-ripple href="ManageCustomers.html">Customer</a></li>
+				  <li><a md-ink-ripple href="#">Company</a></li>
+				  <li><a md-ink-ripple href="#">Product</a></li>
+				  <li><a md-ink-ripple href="#">Location</a></li>
+				  <li><a md-ink-ripple href="#">Scheme</a></li>
+				  <li><a md-ink-ripple href="#">Supplier</a></li>
+				  <li><a md-ink-ripple href="#">Route</a></li>
+				  <li><a md-ink-ripple href="#">Distributor</a></li>
+				  <li><a md-ink-ripple href="#">Sales</a></li>
+				  <li><a md-ink-ripple href="#">Price List</a></li>
+				  <li><a md-ink-ripple href="#">Stock</a></li>
+				  </ul>
+				</li>
+				<li>
+				  <a md-ink-ripple>
+				  <span class="pull-right text-muted">
+                          <i class="fa fa-caret-down"></i>
+                        </span>
+					<i class="icon mdi-image-flash-on i-20"></i>
+					<span class="font-normal">Transaction</span>
+				  </a>
+				  <ul class="nav nav-sub">
+					<li><a href="#">Order</a></li>
+				    <li><a href="#">Payment</a></li>
+				    <li><a href="#">Bank Deposit</a></li>
+				    <li><a href="#">Planogram Management</a></li>
+			    </ul>
+				</li>
+				<li>
+				  <a md-ink-ripple>
+				  <span class="pull-right text-muted">
+                          <i class="fa fa-caret-down"></i>
+                        </span>
+					<i class="icon mdi-editor-insert-drive-file i-20"></i>
+					<span class="font-normal">Administration </span>
+				  </a>
+				  <ul class="nav nav-sub">
+					 <li><a href="#">Device Management</a></li>
+					  <li><a href="#">lookup Management</a></li>
+					  <li><a href="#">Role Management</a></li>
+					  <li><a href="#">Change Password</a></li>
+					  <li><a href="#">User Management</a></li>
+					  </ul>
+			   </li>
+				<li>
+				<a md-ink-ripple>
+				<span class="pull-right text-muted">
+                          <i class="fa fa-caret-down"></i>
+                        </span>
+				<i class="icon mdi-device-multitrack-audio i-20"></i>
+				<span class="font-normal">Reports</span>
+				</a>
+				<ul class="nav nav-sub">
+				 <li><a href="#">Sales By Date</a></li>
+				 <li><a href="#">Sales By TSO</a></li>
+				 <li><a href="#">Sales By Location</a></li> 
+				</ul>
+				</li>
+			
+			  </ul>
+		    </nav>
+
+        </div>
+        <div id="account" class="hide m-v-xs">
+          <nav>
+            <ul class="nav">
+              <li>
+                <a md-ink-ripple href="page.profile.html">
+                  <i class="icon mdi-action-perm-contact-cal i-20"></i>
+                  <span>My Profile</span>
+                </a>
+              </li>
+              <li>
+                <a md-ink-ripple href="lockme.html">
+                  <i class="icon mdi-action-exit-to-app i-20"></i>
+                  <span>Logout</span>
+                </a>
+              </li>
+              <li class="m-v-sm b-b b"></li>
+              <li>
+                <div class="nav-item" ui-toggle-class="folded" target="#aside">
+                  <label class="md-check">
+                    <input type="checkbox">
+                    <i class="purple no-icon"></i>
+                    <span class="hidden-folded">Folded aside</span>
+                  </label>
+                </div>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+  <nav>
+    <ul class="nav b-t b">
+      <li>
+        <a >
+          <i class="icon mdi-action-help i-20"></i>
+          <span>Help</span>
+        </a>
+      </li>
+	   <li>
+        <a >
+          <i class="icon mdi-action-help i-20"></i>
+          <span>Feedback</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+    </div>
+  </aside>
+  <!-- / aside -->
+  
+  <!-- content -->
+  <div id="content" class="app-content" role="main">
+    <div class="box">
+      <!-- Content Navbar -->
+      <div class="navbar md-whiteframe-z1 no-radius green">
+        <!-- Open side - Naviation on mobile -->
+        <a md-ink-ripple  data-toggle="modal" data-target="#aside" class="navbar-item pull-left visible-xs visible-sm"><i class="mdi-navigation-menu i-24"></i></a>
+        <!-- / -->
+        <!-- Page title - Bind to $state's title -->
+        <div class="navbar-item pull-left h4">Settings</div>
+        <!-- / -->
+        <!-- Common tools -->
+        <ul class="nav navbar-tool pull-right">
+          <li>
+            <a md-ink-ripple ui-toggle-class="show" target="#search">
+              <i class="mdi-action-search i-24"></i>
+            </a>
+          </li>
+          <li>
+              <a md-ink-ripple href="settings.html">
+              <i class="icon mdi-action-settings i-24"></i>
+            </a>
+          </li>
+          <li class="dropdown">
+            <a md-ink-ripple data-toggle="dropdown">
+              <i class="mdi-navigation-more-vert i-24"></i>
+            </a>
+           <ul class="dropdown-menu dropdown-menu-scale pull-right pull-up text-color">
+              <li><a href="#"> <i class="icon mdi-action-perm-contact-cal i-20"></i>
+                  <span>My Profile</span></a>
+				  </li>
+				  
+              <li><a href="index.html"> <i class="icon mdi-action-exit-to-app i-20"></i>
+                  <span>Logout</span>
+				  </a>
+				  </li>
+				   <li class="m-v-sm b-b b"></li>
+              <li><div class="nav-item" ui-toggle-class="folded" target="#aside">
+                  <label class="md-check" style="left: 15px;">
+                    <input type="checkbox">
+                    <i class="purple no-icon"></i>
+                    <span class="hidden-folded">Folded aside</span>
+                  </label>
+                </div></li>
+              <li class="divider"></li>
+              <li><a href><i style="color:grey;" class="icon mdi-action-help i-24"></i>
+				<span>Help</span>
+					</a>
+					</li>
+			   <li><a href><i style="color:grey;" class="icon mdi-action-help i-24"></i>
+					<span>Feedback</span>
+					</a>
+				</li>
+			</ul>
+          </li>
+        </ul>
+        <div class="pull-right" ui-view="navbar@"></div>
+        <!-- / -->
+        <!-- Search form -->
+        <div id="search" class="pos-abt w-full h-full green hide">
+          <div class="box">
+            <div class="box-col w-56 text-center">
+              <!-- hide search form -->
+              <a md-ink-ripple class="navbar-item inline"  ui-toggle-class="show" target="#search"><i class="mdi-navigation-arrow-back i-24"></i></a>
+            </div>
+            <div class="box-col v-m">
+              <!-- bind to app.search.content -->
+              <input class="form-control input-lg no-bg no-border" placeholder="Search" ng-model="app.search.content">
+            </div>
+            <div class="box-col w-56 text-center">
+              <a md-ink-ripple class="navbar-item inline"><i class="mdi-av-mic i-24"></i></a>
+            </div>
+          </div>
+        </div>
+        <!-- / -->
+      </div>
+      <!-- Content -->
+<div class="box-row">
+        <div class="box-cell">
+          <div class="box-inner padding">
+            
+
+<div class="padding-out">
+  
+  <div class="box">
+    <div class="col-md-2">
+	<div class="p-h-md p-v bg-white box-shadow pos-rlt">
+    <h4>Custom Fields</h4>
+	
+  </div>
+			
+      <ul class="nav nav-lists b-t bg-white lt b-b text-align: left" ui-nav>
+	  
+        <li style="background-color:rgba(0,0,0,0.05)">
+      <a md-ink-ripple >
+        <span class="hover">
+         
+        </span>
+        <span>Customer</span>
+     </a>
+     
+    </li>
+        <li>
+          <a href="#">Company </a>
+        </li>
+        <li>
+          <a href="#">Product </a>
+        </li>
+        <li>
+          <a href="#">Location </a>
+        </li>
+        <li>
+          <a href="#">Scheme </a>
+        </li>
+        <li>
+          <a href="#">Supplier </a>
+        </li>
+		<li>
+          <a href="#">Route </a>
+        </li>
+		<li>
+          <a href="#">Distributor </a>
+        </li>
+		<li>
+          <a href="#">Sales Target </a>
+        </li>
+		<li>
+          <a href="#">Pricelist </a>
+        </li>
+		<li>
+          <a href="#">Stock Management</a>
+        </li>
+      </ul>
+    </div>
+<div class="col-md-9 b-l bg-white bg-auto">	
+<table class="table" id="table1" style="visibility: hidden">
+
+	<thead>
+        <tr>
+          <th style="padding-top: 14px; padding-bottom: 12px"> <div style="padding-top: 12px; padding-bottom: 12px; font-weight:500" class="p-md bg-light lt b-b font-bold text-align: left">Field Label </div></th>
+          <th style="padding-top: 14px; padding-bottom: 12px"><div style="padding-top: 12px; padding-bottom: 12px; font-weight:500" class="p-md bg-light lt b-b font-bold">Field Type</div></th>
+          <th style="padding-top: 14px; padding-bottom: 12px"><div style="padding-top: 12px; padding-bottom: 12px; font-weight:500" class="p-md bg-light lt b-b font-bold">Preview</div></th>
+        </tr>
+	</thead>
+	<tbody style="border-top-color:none;">
+        <tr>
+			<td style="padding-bottom: 0px; padding-top: 0px; vertical-align: middle;">
+				<md-input-container>
+				<label style = "text-align: left; float: left;">Label for Field 1</label>
+				<input type="text" name="companyname" ng-model="project.name" tabindex="0" required/>
+				</md-input-container>
+			</td>
+			<td style="padding-bottom: 0px; padding-top: 0px; vertical-align: middle;"> 
+				<span style="align="center" class="md-select-icon" aria-hidden="true"></span>
+				<md-select class="md-select-label" style="line-height: 0.4em;" id="selectiongroup" ng-change = "Show()" ng-model="opt" placeholder="Options">
+					<md-option ng-repeat="option in options" value="{{option}}">{{option}}</md-option>
+				</md-select>
+			</td>
+			<td style="padding-bottom: 0px; padding-top: 0px; vertical-align: middle;">
+				<div style="display: block">
+					<div id="radiobutton" style="display: none">
+					<md-radio-group ng-model="project.title">
+					<md-radio-button class="md-primary" value="value1">Value 1</md-radio-button>
+					<md-radio-button class="md-primary" value="value2"> Value 2 </md-radio-button>
+					</md-radio-group>
+					</div>
+					
+					<div id="switch" style="display: none">
+					<md-switch class="md-primary" md-no-ink="" aria-label="Switch No Ink" ng-model="project.switch">
+							Switch 
+					</md-switch>
+					</div>
+					<div id="button" style="display: none">
+						
+						
+					<button class="md-raised md-primary md-button md-default-theme">
+					<span class="ng-scope">Primary</span><div class="md-ripple-container"></div></button>
+					</div>
+					<div id="checkbox" style= "display: none">
+					
+					<md-checkbox md-no-ink="" aria-label="Checkbox No Ink" ng-model="project.checbox" class="md-primary">
+					  Checkbox 
+					</md-checkbox>
+					</div>
+					<div id="input" style="display: none">
+					
+					 <md-input-container>
+						  <label>Label</label>
+						  <input type="text" ng-model="project.input">
+					</md-input-container>
+					</div>
+					<div id="date" style="display: none">
+					
+					 <md-input-container>
+						  <label>Date</label>
+						  <input type="date" ng-model="project.date">
+					</md-input-container>
+					</div>
+					<div id="number" style="display: none">
+					
+					 <md-input-container>
+						  <label>Number</label>
+						  <input type="number" ng-model="project.number">
+					</md-input-container>
+					</div>
+				</div> 
+			</td>
+        </tr>
+		<tr>
+			<td style="padding-bottom: 0px; padding-top: 0px; vertical-align: middle;">
+				<md-input-container>
+				<label style = "text-align: left; float: left;">Label for Field 2</label>
+				<input type="text" name="companyname" ng-model="project.name1" tabindex="0" required/>
+				</md-input-container>
+			</td>
+			<td style="padding-bottom: 0px; padding-top: 0px; vertical-align: middle;"> 
+				<span class="md-select-icon" aria-hidden="true"></span>
+				<md-select class="md-select-label" style="line-height: 0.4em;" id="selectiongroup" ng-change = "Show1()" ng-model="opt1" placeholder="Options">
+					<md-option ng-repeat="option in options" value="{{option}}">{{option}}</md-option>
+				</md-select>
+
+			</td>
+			<td style="padding-bottom: 0px; padding-top: 0px; vertical-align: middle;">
+				<div style="display: block">
+					<div id="radiobutton1" style="display: none">
+					<md-radio-group ng-model="project.title1">
+					<md-radio-button class="md-primary" value="value1">Value 1</md-radio-button>
+					<md-radio-button class="md-primary" value="value2"> Value 2 </md-radio-button>
+					</md-radio-group>
+					</div>
+					
+					<div id="switch1" style="display: none">
+					<md-switch class="md-primary" md-no-ink="" aria-label="Switch No Ink" ng-model="project.switch1">
+							Switch 
+					</md-switch>
+					</div>
+					<div id="button1" style="display: none">
+						
+						
+					<button class="md-raised md-primary md-button md-default-theme">
+					<span class="ng-scope">Primary</span><div class="md-ripple-container"></div></button>
+					</div>
+					<div id="checkbox1" style= "display: none">
+					
+					<md-checkbox md-no-ink="" aria-label="Checkbox No Ink" ng-model="project.checbox1" class="md-primary">
+					  Checkbox 
+					</md-checkbox>
+					</div>
+					<div id="input1" style="display: none">
+					
+					 <md-input-container>
+						  <label>Label</label>
+						  <input type="text" ng-model="project.input1">
+					</md-input-container>
+					</div>
+					<div id="date1" style="display: none">
+					
+					 <md-input-container>
+						  <label>Date</label>
+						  <input type="date" ng-model="project.date1">
+					</md-input-container>
+					</div>
+					<div id="number1" style="display: none">
+					
+					 <md-input-container>
+						  <label>Number</label>
+						  <input type="number" ng-model="project.number1">
+					</md-input-container>
+					</div>
+				</div> 
+			</td>
+        </tr>
+		<tr>
+			<td style="padding-bottom: 0px; padding-top: 0px; vertical-align: middle;">
+				<md-input-container>
+				<label style = "text-align: left; float: left;">Label for Field 3</label>
+				<input type="text" name="companyname" ng-model="project.name2" tabindex="0" required/>
+				</md-input-container>
+			</td>
+			<td style="padding-bottom: 0px; padding-top: 0px; vertical-align: middle;"> 
+				<span class="md-select-icon" aria-hidden="true"></span>
+				<md-select class="md-select-label" style="line-height: 0.4em;" id="selectiongroup" ng-change = "Show2()" ng-model="opt2" placeholder="Options">
+					<md-option ng-repeat="option in options" value="{{option}}">{{option}}</md-option>
+				</md-select>
+
+			</td>
+			<td style="padding-bottom: 0px; padding-top: 0px; vertical-align: middle;">
+				<div style="display: block">
+					<div id="radiobutton2" style="display: none">
+					<md-radio-group ng-model="project.title2">
+					<md-radio-button class="md-primary" value="value1">Value 1</md-radio-button>
+					<md-radio-button class="md-primary" value="value2"> Value 2 </md-radio-button>
+					</md-radio-group>
+					</div>
+					
+					<div id="switch2" style="display: none">
+					<md-switch class="md-primary" md-no-ink="" aria-label="Switch No Ink" ng-model="project.checbox2">
+							Switch 
+					</md-switch>
+					</div>
+					<div id="button2" style="display: none">
+						
+						
+					<button class="md-raised md-primary md-button md-default-theme">
+					<span class="ng-scope">Primary</span><div class="md-ripple-container"></div></button>
+					</div>
+					<div id="checkbox2" style= "display: none">
+					
+					<md-checkbox md-no-ink="" aria-label="Checkbox No Ink" ng-model="project.button2" class="md-primary">
+					  Checkbox 
+					</md-checkbox>
+					</div>
+					<div id="input2" style="display: none">
+					
+					 <md-input-container>
+						  <label>Label</label>
+						  <input type="text" ng-model="project.input2">
+					</md-input-container>
+					</div>
+					<div id="date2" style="display: none">
+					
+					 <md-input-container>
+						  <label>Date</label>
+						  <input type="date" ng-model="project.date2">
+					</md-input-container>
+					</div>
+					<div id="number2" style="display: none">
+					
+					 <md-input-container>
+						  <label>Number</label>
+						  <input type="number" ng-model="project.number2">
+					</md-input-container>
+					</div>
+				</div> 
+			</td>
+        </tr>
+		<tr>
+			<td style="padding-bottom: 0px; padding-top: 0px; vertical-align: middle;">
+				<md-input-container>
+				<label style = "text-align: left; float: left;">Label for Field 4</label>
+				<input type="text" name="companyname" ng-model="project.name3" tabindex="0" required/>
+				</md-input-container>
+			</td>
+			<td style="padding-bottom: 0px; padding-top: 0px; vertical-align: middle;"> 
+				<span class="md-select-icon" aria-hidden="true"></span>
+				<md-select class="md-select-label" style="line-height: 0.4em;" id="selectiongroup" ng-change = "Show3()" ng-model="opt3" placeholder="Options">
+					<md-option ng-repeat="option in options" value="{{option}}">{{option}}</md-option>
+				</md-select>
+
+			</td>
+			<td style="padding-bottom: 0px; padding-top: 0px; vertical-align: middle;">
+				<div style="display: block">
+					<div id="radiobutton3" style="display: none">
+					<md-radio-group ng-model="project.title3">
+					<md-radio-button class="md-primary" value="value1">Value 1</md-radio-button>
+					<md-radio-button class="md-primary" value="value2"> Value 2 </md-radio-button>
+					</md-radio-group>
+					</div>
+					
+					<div id="switch3" style="display: none">
+					<md-switch class="md-primary" md-no-ink="" aria-label="Switch No Ink" ng-model="project.switch3">
+							Switch 
+					</md-switch>
+					</div>
+					<div id="button3" style="display: none">
+						
+						
+					<button class="md-raised md-primary md-button md-default-theme">
+					<span class="ng-scope">Primary</span><div class="md-ripple-container"></div></button>
+					</div>
+					<div id="checkbox3" style= "display: none">
+					
+					<md-checkbox md-no-ink="" aria-label="Checkbox No Ink" ng-model="project.checbox3" class="md-primary">
+					  Checkbox 
+					</md-checkbox>
+					</div>
+					<div id="input3" style="display: none">
+					
+					 <md-input-container>
+						  <label>Label</label>
+						  <input type="text" ng-model="project.input3">
+					</md-input-container>
+					</div>
+					<div id="date3" style="display: none">
+					
+					 <md-input-container>
+						  <label>Date</label>
+						  <input type="date" ng-model="project.date3">
+					</md-input-container>
+					</div>
+					<div id="number3" style="display: none">
+					
+					 <md-input-container>
+						  <label>Number</label>
+						  <input type="number" ng-model="project.number3">
+					</md-input-container>
+					</div>
+				</div> 
+			</td>
+        </tr>
+		<tr>
+			<td style="padding-bottom: 0px; padding-top: 0px; vertical-align: middle;">
+				<md-input-container>
+				<label style = "text-align: left; float: left;">Label for Field 5</label>
+				<input type="text" name="companyname" ng-model="project.name4" tabindex="0" required/>
+				</md-input-container>
+			</td>
+			<td style="padding-bottom: 0px; padding-top: 0px; vertical-align: middle;"> 
+				<span class="md-select-icon" aria-hidden="true"></span>
+				<md-select class="md-select-label" id="selectiongroup" style="line-height: 0.4em;" ng-change = "Show4()" ng-model="opt4" placeholder="Options">
+					<md-option ng-repeat="option in options" value="{{option}}">{{option}}</md-option>
+				</md-select>
+
+			</td>
+			<td style="padding-bottom: 0px; padding-top: 0px; vertical-align: middle;">
+				<div style="display: block">
+					<div id="radiobutton4" style="display: none">
+					<md-radio-group ng-model="project.title4">
+					<md-radio-button class="md-primary" value="value1">Value 1</md-radio-button>
+					<md-radio-button class="md-primary" value="value2"> Value 2 </md-radio-button>
+					</md-radio-group>
+					</div>
+					
+					<div id="switch4" style="display: none">
+					<md-switch class="md-primary" md-no-ink="" aria-label="Switch No Ink" ng-model="project.switch4">
+							Switch 
+					</md-switch>
+					</div>
+					<div id="button4" style="display: none">
+						
+						
+					<button class="md-raised md-primary md-button md-default-theme">
+					<span class="ng-scope">Primary</span><div class="md-ripple-container"></div></button>
+					</div>
+					<div id="checkbox4" style= "display: none">
+					
+					<md-checkbox md-no-ink="" aria-label="Checkbox No Ink" ng-model="project.checbox4" class="md-primary">
+					  Checkbox 
+					</md-checkbox>
+					</div>
+					<div id="input4" style="display: none">
+					
+					 <md-input-container>
+						  <label>Label</label>
+						  <input type="text" ng-model="project.input4">
+					</md-input-container>
+					</div>
+					<div id="date4" style="display: none">
+					
+					 <md-input-container>
+						  <label>Date</label>
+						  <input type="date" ng-model="project.date4">
+					</md-input-container>
+					</div>
+					<div id="number4" style="display: none">
+					
+					 <md-input-container>
+						  <label>Number</label>
+						  <input type="number" ng-model="project.number4">
+					</md-input-container>
+					</div>
+				</div> 
+			</td>
+        </tr>
+		<tr>
+			<td style="padding-bottom: 0px; padding-top: 0px; vertical-align: middle;">
+				<md-input-container>
+				<label style = "text-align: left; float: left;">Label for Field 6</label>
+				<input type="text" name="companyname" ng-model="project.name5" tabindex="0" required/>
+				</md-input-container>
+			</td>
+			<td style="padding-bottom: 0px; padding-top: 0px; vertical-align: middle;"> 
+				<span class="md-select-icon" aria-hidden="true"></span>
+				<md-select class="md-select-label" id="selectiongroup" style="line-height: 0.4em;" ng-change = "Show5()" ng-model="opt5" placeholder="Options">
+					<md-option ng-repeat="option in options" value="{{option}}">{{option}}</md-option>
+				</md-select>
+
+			</td>
+			<td style="padding-bottom: 0px; padding-top: 0px; vertical-align: middle;">
+				<div style="display: block">
+					<div id="radiobutton5" style="display: none">
+					<md-radio-group ng-model="project.title5">
+					<md-radio-button class="md-primary" value="value1">Value 1</md-radio-button>
+					<md-radio-button class="md-primary" value="value2"> Value 2 </md-radio-button>
+					</md-radio-group>
+					</div>
+					
+					<div id="switch5" style="display: none">
+					<md-switch class="md-primary" md-no-ink="" aria-label="Switch No Ink" ng-model="project.switch5">
+							Switch 
+					</md-switch>
+					</div>
+					<div id="button5" style="display: none">
+						
+						
+					<button class="md-raised md-primary md-button md-default-theme">
+					<span class="ng-scope">Primary</span><div class="md-ripple-container"></div></button>
+					</div>
+					<div id="checkbox5" style= "display: none">
+					
+					<md-checkbox md-no-ink="" aria-label="Checkbox No Ink" ng-model="project.checbox5" class="md-primary">
+					  Checkbox 
+					</md-checkbox>
+					</div>
+					<div id="input5" style="display: none">
+					
+					 <md-input-container>
+						  <label>Label</label>
+						  <input type="text" ng-model="project.input5">
+					</md-input-container>
+					</div>
+					<div id="date5" style="display: none">
+					
+					 <md-input-container>
+						  <label>Date</label>
+						  <input type="date" ng-model="project.date5">
+					</md-input-container>
+					</div>
+					<div id="number5" style="display: none">
+					
+					 <md-input-container>
+						  <label>Number</label>
+						  <input type="number" ng-model="project.number5">
+					</md-input-container>
+					</div>
+				</div> 
+			</td>
+        </tr>
+		<tr>
+			<td style="padding-bottom: 0px; padding-top: 0px; vertical-align: middle;">
+				<md-input-container>
+				<label style = "text-align: left; float: left;">Label for Field 7</label>
+				<input type="text" name="companyname" ng-model="project.name6" tabindex="0" required/>
+				</md-input-container>
+			</td>
+			<td style="padding-bottom: 0px; padding-top: 0px; vertical-align: middle;"> 
+				<span class="md-select-icon" aria-hidden="true"></span>
+				<md-select class="md-select-label" id="selectiongroup" style="line-height: 0.4em;" ng-change = "Show6()" ng-model="opt6" placeholder="Options">
+					<md-option ng-repeat="option in options" value="{{option}}">{{option}}</md-option>
+				</md-select>
+
+			</td>
+			<td style="padding-bottom: 0px; padding-top: 0px; vertical-align: middle;">
+				<div style="display: block">
+					<div id="radiobutton6" style="display: none">
+					<md-radio-group ng-model="project.title6">
+					<md-radio-button class="md-primary" value="value1">Value 1</md-radio-button>
+					<md-radio-button class="md-primary" value="value2"> Value 2 </md-radio-button>
+					</md-radio-group>
+					</div>
+					
+					<div id="switch6" style="display: none">
+					<md-switch class="md-primary" md-no-ink="" aria-label="Switch No Ink" ng-model="project.switch6">
+							Switch 
+					</md-switch>
+					</div>
+					<div id="button6" style="display: none">
+						
+						
+					<button class="md-raised md-primary md-button md-default-theme">
+					<span class="ng-scope">Primary</span><div class="md-ripple-container"></div></button>
+					</div>
+					<div id="checkbox6" style= "display: none">
+					
+					<md-checkbox md-no-ink="" aria-label="Checkbox No Ink" ng-model="project.checbox6" class="md-primary">
+					  Checkbox 
+					</md-checkbox>
+					</div>
+					<div id="input6" style="display: none">
+					
+					 <md-input-container>
+						  <label>Label</label>
+						  <input type="text" ng-model="project.input6">
+					</md-input-container>
+					</div>
+					<div id="date6" style="display: none">
+					
+					 <md-input-container>
+						  <label>Date</label>
+						  <input type="date" ng-model="project.date6">
+					</md-input-container>
+					</div>
+					<div id="number6" style="display: none">
+					
+					 <md-input-container>
+						  <label>Number</label>
+						  <input type="number" ng-model="project.number6">
+					</md-input-container>
+					</div>
+				</div> 
+			</td>
+        </tr>
+		<tr>
+			<td style="padding-bottom: 0px; padding-top: 0px; vertical-align: middle;">
+				<md-input-container>
+				
+				<label style = "text-align: left; float: left;">Label for Field 8</label>
+				<input type="text" name="companyname" ng-model="project.name7" tabindex="0" required/>
+				</md-input-container>
+			</td>
+			<td style="padding-bottom: 0px; padding-top: 0px; vertical-align: middle;"> 
+				<span class="md-select-icon" aria-hidden="true"></span>
+				<md-select class="md-select-label" id="selectiongroup" style="line-height: 0.4em;" ng-change = "Show7()" ng-model="opt7" placeholder="Options">
+					<md-option ng-repeat="option in options" value="{{option}}">{{option}}</md-option>
+				</md-select>
+
+			</td>
+			<td style="padding-bottom: 0px; padding-top: 0px; vertical-align: middle;">
+				<div style="display: block">
+					<div id="radiobutton7" style="display: none">
+					<md-radio-group ng-model="project.title7">
+					<md-radio-button class="md-primary" value="value1">Value 1</md-radio-button>
+					<md-radio-button class="md-primary" value="value2"> Value 2 </md-radio-button>
+					</md-radio-group>
+					</div>
+					
+					<div id="switch7" style="display: none">
+					<md-switch class="md-primary" md-no-ink="" aria-label="Switch No Ink" ng-model="project.switch7">
+							Switch 
+					</md-switch>
+					</div>
+					<div id="button7" style="display: none">
+						
+						
+					<button class="md-raised md-primary md-button md-default-theme">
+					<span class="ng-scope">Primary</span><div class="md-ripple-container"></div></button>
+					</div>
+					<div id="checkbox7" style= "display: none">
+					
+					<md-checkbox md-no-ink="" aria-label="Checkbox No Ink" ng-model="project.checbox7" class="md-primary">
+					  Checkbox 
+					</md-checkbox>
+					</div>
+					<div id="input7" style="display: none">
+					
+					 <md-input-container>
+						  <label>Label</label>
+						  <input type="text" ng-model="project.input7">
+					</md-input-container>
+					</div>
+					<div id="date7" style="display: none">
+					
+					 <md-input-container>
+						  <label>Date</label>
+						  <input type="date" ng-model="project.date7">
+					</md-input-container>
+					</div>
+					<div id="number7" style="display: none">
+					
+					 <md-input-container>
+						  <label>Number</label>
+						  <input type="number" ng-model="project.number7">
+					</md-input-container>
+					</div>
+				</div> 
+			</td>
+        </tr>
+		<tr>
+			<td style="padding-bottom: 0px; padding-top: 0px; vertical-align: middle;">
+				<md-input-container>
+				
+				<label style = "text-align: left; float: left;">Label for Field 9</label>
+				<input type="text" name="companyname" ng-model="project.name8" tabindex="0" required/>
+				</md-input-container>
+			</td>
+			<td style="padding-bottom: 0px; padding-top: 0px; vertical-align: middle;"> 
+				<span class="md-select-icon" aria-hidden="true"></span>
+				<md-select class="md-select-label" id="selectiongroup" style="line-height: 0.4em;" ng-change = "Show8()" ng-model="opt8" placeholder="Options">
+					<md-option ng-repeat="option in options" value="{{option}}">{{option}}</md-option>
+				</md-select>
+
+			</td>
+			<td style="padding-bottom: 0px; padding-top: 0px; vertical-align: middle;">
+				<div style="display: block">
+					<div id="radiobutton8" style="display: none">
+					<md-radio-group ng-model="project.title8">
+					<md-radio-button class="md-primary" value="value1">Value 1</md-radio-button>
+					<md-radio-button class="md-primary" value="value2"> Value 2 </md-radio-button>
+					</md-radio-group>
+					</div>
+					
+					<div id="switch8" style="display: none">
+					<md-switch class="md-primary" md-no-ink="" aria-label="Switch No Ink" ng-model="project.switch8">
+							Switch 
+					</md-switch>
+					</div>
+					<div id="button8" style="display: none">
+						
+						
+					<button class="md-raised md-primary md-button md-default-theme">
+					<span class="ng-scope">Primary</span><div class="md-ripple-container"></div></button>
+					</div>
+					<div id="checkbox8" style= "display: none">
+					
+					<md-checkbox md-no-ink="" aria-label="Checkbox No Ink" ng-model="project.checbox8" class="md-primary">
+					  Checkbox 
+					</md-checkbox>
+					</div>
+					<div id="input8" style="display: none">
+					
+					 <md-input-container>
+						  <label>Label</label>
+						  <input type="text" ng-model="project.input8">
+					</md-input-container>
+					</div>
+					<div id="date8" style="display: none">
+					
+					 <md-input-container>
+						  <label>Date</label>
+						  <input type="date" ng-model="project.date8">
+					</md-input-container>
+					</div>
+					<div id="number8" style="display: none">
+					
+					 <md-input-container>
+						  <label>Number</label>
+						  <input type="number" ng-model="project.number8">
+					</md-input-container>
+					</div>
+				</div> 
+			</td>
+        </tr>
+		<tr>
+			<td style="padding-bottom: 0px; padding-top: 0px; vertical-align: middle;">
+				<md-input-container>
+				
+				<label style = "text-align: left; float: left;">Label for Field 10</label>
+				<input type="text" name="companyname" ng-model="project.name9" tabindex="0" required/>
+				</md-input-container>
+			</td>
+			<td style="padding-bottom: 0px; padding-top: 0px; vertical-align: middle;"> 
+			<span class="md-select-icon" aria-hidden="true"></span>
+				<md-select class="md-select-label" id="selectiongroup" style="line-height: 0.4em;" ng-change = "Show9()" ng-model="opt9" placeholder="Options">
+					<md-option ng-repeat="option in options" value="{{option}}">{{option}}</md-option>
+				</md-select>
+
+			</td>
+			<td style="padding-bottom: 0px; padding-top: 0px; vertical-align: middle;">
+				<div style="display: block">
+					<div id="radiobutton9" style="display: none">
+					<md-radio-group ng-model="project.title9">
+					<md-radio-button class="md-primary" value="value1">Value 1</md-radio-button>
+					<md-radio-button class="md-primary" value="value2"> Value 2 </md-radio-button>
+					</md-radio-group>
+					</div>
+					
+					<div id="switch9" style="display: none">
+					<md-switch class="md-primary" md-no-ink="" aria-label="Switch No Ink" ng-model="project.switch9">
+							Switch 
+					</md-switch>
+					</div>
+					<div id="button9" style="display: none">
+						
+						
+					<button class="md-raised md-primary md-button md-default-theme">
+					<span class="ng-scope">Primary</span><div class="md-ripple-container"></div></button>
+					</div>
+					<div id="checkbox9" style= "display: none">
+					
+					<md-checkbox md-no-ink="" aria-label="Checkbox No Ink" ng-model="project.checbox9" class="md-primary">
+					  Checkbox 
+					</md-checkbox>
+					</div>
+					<div id="input9" style="display: none">
+					
+					 <md-input-container>
+						  <label>Label</label>
+						  <input type="text" ng-model="project.input9">
+					</md-input-container>
+					</div>
+					<div id="date9" style="display: none">
+					
+					 <md-input-container>
+						  <label>Date</label>
+						  <input type="date" ng-model="project.date9">
+					</md-input-container>
+					</div>
+					<div id="number9" style="display: none">
+					
+					 <md-input-container>
+						  <label>Number</label>
+						  <input type="number" ng-model="project.number9">
+					</md-input-container>
+					</div>
+				</div> 
+			</td>
+        </tr>
+		<tr>
+<td>
+<button type="submit" class="md-btn md-raised deep-purple-A200 p-h-md waves-effect">Save</button>  
+<button type="submit" class="md-btn md-raised deep-purple-A200 p-h-md waves-effect">Cancel</button>
+</td>   
+<td>
+</td>
+<td>
+</td>
+	
+
+		</tr>
+	
+	</tbody>
+</table>
+</div>
+
+	
+	</div>
+        </div>
+      </div>
+      <!-- / -->
+    </div>
+
+  </div>
+  <!-- / content -->
+
+</div>
+
+<script src="scripts/app.min.js"></script>
+<script>
+	
+		document.getElementById('table1').style.visibility = 'visible';
+	
+</script>
+</body>
+
+<!-- Mirrored from flatfull.com/themes/materil/html/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 16 Jul 2015 08:22:11 GMT -->
+</html>

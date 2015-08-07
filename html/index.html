@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+  <meta charset="utf-8" />
+  <title>TMX | Responsive Web Admin App with AngularJS And Bootstrap</title>
+  <meta name="description" content="app, web app, responsive, responsive layout, admin, admin panel, admin dashboard, flat, flat ui, ui kit, AngularJS, ui route, charts, widgets, components" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+
+  <link rel="stylesheet" href="libs/assets/animate.css/animate.css" type="text/css" />
+  <link rel="stylesheet" href="libs/assets/font-awesome/css/font-awesome.css" type="text/css" />
+  <link rel="stylesheet" href="libs/jquery/waves/dist/waves.css" type="text/css" />
+
+
+<script src= "scripts/angular.js"></script>
+<script src= "scripts/angular-material.js"></script>
+<script src= "scripts/angular-messages.js"></script>
+<script src= "scripts/angular-animate.js"></script>
+<script src= "scripts/angular-aria.js"></script>
+  <link rel="stylesheet" href="styles/material-design-icons.css" type="text/css" />
+  <link rel="stylesheet" href="styles/app.min.css" type="text/css" />
+  <link rel="stylesheet" href="styles/angular-material.css" type="text/css" />
+
+<script>
+	angular.module('demoApp', ['ngMaterial', 'ngMessages'])
+
+  /**
+   *  Simple controller to build a `user` data model
+   *  that will be used to databinding with `<tf-float>` directives
+   */
+  .controller('DemoController', function($scope) {$scope.project = {
+       title:     "Technical Program Manager",
+       email:     "ipsum@lorem.com",
+       firstName: "",
+       lastName:  "" ,
+       company:   "Google" ,
+       address:   "1600 Amphitheatre Pkwy" ,
+       city:      "Mountain View" ,
+       state:     "CA" ,
+       country:   "USA" ,
+       postalCode : "94043",
+	   rate : ""
+    };
+  })
+		
+		
+	</script>
+</head>
+
+<body ng-app="demoApp" ng-controller="DemoController" style="background: url(images/BG_shopkeeper.jpg) no-repeat top center fixed transparent; background-size: cover;">
+<div class="app">
+ <!-- <div  style="background: url(images/TmX-salesman.png) no-repeat; background-size: 100% 100%;background-position: center center;float:left">
+  
+        
+        <span class="m-l inline" ></span>
+
+    </div>
+-->
+  <div class="center-block w-xxl w-auto-xs p-v-md">
+    <div class="p-lg panel md-whiteframe-z1 text-color m" id="mainsignindiv" style="background-color: rgba(255,255,255,0.74); display:none;">
+	
+	    <div class="navbar" style="background: url(images/logo-login.png) no-repeat; background-size: 100% 100%;background-position: center center;">
+  
+        
+        <span class="m-l inline" ></span>
+
+    </div>
+      <div  class="m-b text-sm">
+      <!--<button md-ink-ripple class="md-btn md-raised m-b btn-fw blue">Blue</button>-->
+	  
+      <div class="p-v-lg text-center">
+	  
+      <div id="signin" name = "sign up">  
+         <form name="myform2" action="settings.html" >
+         <br>
+        <md-input-container>
+			<label style = "text-align: left; float: left; font-size:medium;">User Id</label>
+			<input type="text" name="useridsignin" ng-model="project.useridsignin" tabindex="0" required minlength="6" maxLength="12" />
+			<div ng-messages="myform2.useridsignin.$error">
+				<div ng-message="required">Please enter User Id</div>
+				<div ng-message="minlength">Minimum 6 characters required</div>
+			</div>
+		</md-input-container>
+		
+        <md-input-container>
+			<label style = "text-align: left; float: left;font-size:medium;">Password</label>
+			<input type="password" name="passwordsignin" ng-model="project.passwordsignin" tabindex="0" required minlength="8" maxLength="12" />
+			<div ng-messages="myform2.passwordsignin.$error">
+				<div ng-message="required">Please enter Password</div>
+				<div ng-message="minlength">Minimum 8 characters required</div>
+			</div>
+		</md-input-container>
+		<br>
+        <div class="m-b-md">
+          <label class="md-check">
+            <input type="checkbox" ng-model="agree" required><i class="indigo"></i> <a href> Agree Terms of Use and Privacy Policy</a>
+          </label>
+          <div class="md-form-group">
+           <button type = "submit" md-ink-ripple  class="md-btn md-raised indigo btn-block p-h-md" style="width: 100%;">Sign In </button>
+           </div>
+        </div>
+       </form>
+
+	    <div>Donot have an account? <a href="" data-toggle="modal" data-target="#myModal" onclick="reset()"><b>Join Now</b></a> <button ui-sref="access.signin" class="md-btn"></button>
+      
+	  </div>
+       </div> 
+    </div>
+      </div>
+
+      
+  </div>
+<div class="modal" id="myModal1" role="dialog" aria-hidden="true">
+	 <div class="modal-dialog">
+                <div class="modal-content">
+					<div class="modal-header green">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Activation Code</h4>
+					</div>
+					<div>
+							 <md-tabs md-dynamic-height md-border-bottom md-stretch-tabs md-selected="0">
+								<md-content class="md-padding">
+								
+									<div id="activationcode" name = "sign up" style= "display:block" >   
+												 <form name="myform3" class="ng-valid-max ng-dirty ng-valid-parse ng-valid-md-maxlength ng-valid-number ng-invalid ng-valid-min ng-invalid-required">
+													 <br>
+												   <md-input-container>
+														<label style = "text-align: left; float: left;">Activation Code</label>
+														<input type="text" name="companyname" ng-model="project.name" tabindex="0" required/>
+														<div ng-messages="myform.companyname.$error">
+															<div ng-message="required">Please enter Activation Code</div>
+														</div>
+													</md-input-container>
+													 <div style="text-align:center;"><br>
+													   <button type = "submit" md-ink-ripple data-toggle="modal" data-target="#myModal1" class="md-btn md-raised indogo btn-block p-h-md" style="display:inline; height: 20%; width: 70%;">Sign Up </button>
+													  </div>
+													  </form>
+								
+								</md-content>
+							</md-tabs>
+								
+					</div>
+				</div>
+	</div>
+</div>
+</div>
+ <div class="modal fade" id="myModal" role="dialog" aria-hidden="true">
+              <div class="modal-dialog modal-sm" >
+                <div class="modal-content">
+                  <div class="modal-header green">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Sign Up</h4>
+                  </div>
+                  <div>
+                   
+					
+						    	     <md-tabs md-dynamic-height md-border-bottom md-stretch-tabs md-selected="0">
+											 
+												<md-content class="md-padding">
+												<div id="signupwithcompany" name = "sign up" style= "display:block" >   
+												 <form name="myform" class="ng-valid-max ng-dirty ng-valid-parse ng-valid-md-maxlength ng-valid-number ng-invalid ng-valid-min ng-invalid-required" onsubmit="showactivation()">
+													 <br>
+												   <md-input-container>
+														<label style = "text-align: left; float: left; font-size: medium;">Company Name</label>
+														<input type="text" name="companyname" ng-model="project.name" tabindex="0" required/>
+														<div ng-messages="myform.companyname.$error">
+															<div ng-message="required">Please enter company name</div>
+														</div>
+													</md-input-container>
+												
+													
+													<md-input-container>
+														<label style = "text-align: left; float: left; font-size: medium;">User Id</label>
+														<input type="text" name="userid" ng-model="project.userid" tabindex="0" required minlength="6" maxLength="12" />
+														<div ng-messages="myform.userid.$error">
+															<div ng-message="required">Please enter user Id</div>
+															<div ng-message="minlength">Minimum 6 characters required</div>
+														</div>
+													</md-input-container>
+												
+													
+													<md-input-container>
+														<label style = "text-align: left; float: left; font-size: medium;">Password</label>
+														<input type="password" name="password" ng-model="project.password" tabindex="0" required minlength="8" maxLength="12" />
+														<div ng-messages="myform.password.$error">
+															<div ng-message="required">Please enter password</div>
+															<div ng-message="minlength">Minimum 8 characters required</div>
+														</div>
+													</md-input-container>
+													
+													
+													<md-input-container>
+														<label style = "text-align: left; float: left; font-size: medium;">FirstName</label>
+														<input type="text" name="firstname" ng-model="project.firstName" tabindex="0" required/>
+														<div ng-messages="myform.firstname.$error">
+															<div ng-message="required">Please enter FirstName</div>
+														</div>
+													</md-input-container>
+													
+													
+												   <md-input-container>
+														<label style = "text-align: left; float: left; font-size: medium;">LastName</label>
+														<input type="text" name="lastname" ng-model="project.lastName" tabindex="0" required/>
+														<div ng-messages="myform.lastname.$error">
+															<div ng-message="required">Please enter LastName</div>
+														</div>
+													</md-input-container>
+												
+													
+												   <md-input-container>
+														<label style = "text-align: left; float: left; font-size: medium;">Phone No</label>
+														<input type="text" name="phoneno" ng-model="project.phoneno" tabindex="0"required/>
+														<div ng-messages="myform.phoneno.$error">
+															<div ng-message="required">Please enter Phone No</div>
+														</div>
+													</md-input-container>
+													<br>
+													
+													<div class="m-b-md">
+													  <label class="md-check">
+														<input type="checkbox" ng-model="agree" required><i class="indigo"></i> <a href style="font-size: 13px;"> Agree Terms of Use and Privacy Policy</a>
+													  </label>
+													  <div style="text-align:center;"><br>
+													   <button type = "submit" md-ink-ripple class="md-btn md-raised indigo btn-block p-h-md" style="display:inline; font-size:13px; width: 70%;">Sign Up </button>
+													   </div>
+													</div>
+												</form>
+												<div style="text-align:center;">- OR -</div><br>
+												<div style="text-align:center;">
+												 <button md-ink-ripple onclick="ToggleFormSocial()" class="md-btn md-raised indigo btn-block p-h-md" style="background-image: url(images/signinfb.png);
+													background-repeat: round; color: transparent;  width: 70%">
+													Facebook Signin
+												</button>
+												</div>
+												</div>
+												
+												
+											<div id="signupwithsocial" name = "sign up" style= "display:none" >  
+												 <form name="myform1" class="ng-valid-max ng-dirty ng-valid-parse ng-valid-md-maxlength ng-valid-number ng-invalid ng-valid-min ng-invalid-required" onsubmit="showactivation()">
+												<br>
+												  <div class="m-b-md">
+													<img style="border-radius:40px; width:100px; height:100px; margin:0px auto;display:block;"src="images\pic_mountain.jpg" alt="Mountain View">
+												</div>
+												<md-input-container>
+													<label style = "text-align: left; float: left; font-size: medium;">Company Name</label>
+													<input type="text" name="companynameSocialForm" ng-model="project.companynameSocialForm" tabindex="0" required/>
+													<div ng-messages="myform1.companynameSocialForm.$error">
+														<div ng-message="required">Please enter Company Name</div>
+													</div>
+												</md-input-container>
+												
+												
+												<md-input-container>
+													<label style = "text-align: left; float: left; font-size: medium;">Phone No</label>
+													<input type="text" name="phonenoSocialForm" ng-model="project.phonenoSocialForm" tabindex="0" required/>
+													<div ng-messages="myform1.phonenoSocialForm.$error">
+														<div ng-message="required">Please enter Phone No</div>
+													</div>
+												</md-input-container>
+												
+												
+											   <br>
+												<div class="m-b-md">
+												  <label class="md-check">
+													<input type="checkbox" ng-model="agree" required><i class="indigo"></i> <a href style="font-size: 13px;"> Agree Terms of Use and Privacy Policy</a>
+												  </label>
+												   <div style="text-align:center;"><br>
+													   <button type = "submit" md-ink-ripple  class="md-btn md-raised indigo btn-block p-h-md" style="display:inline; font-size:13px; width: 70%;">Sign Up</button>
+													</div>
+												</div>
+											   </form>
+											</div>
+											
+											<div id="activationcode1" name = "sign up" style= "display:none" >   
+												 <form name="myform3" class="ng-valid-max ng-dirty ng-valid-parse ng-valid-md-maxlength ng-valid-number ng-invalid ng-valid-min ng-invalid-required" >
+													 <br>
+												   <md-input-container>
+														<label style = "text-align: left; float: left;  font-size: medium;">Activation Code</label>
+														<input type="text" name="companyname" ng-model="project.activationcode" tabindex="0" required/>
+														<div ng-messages="myform.companyname.$error">
+															<div ng-message="required">Please enter Activation Code</div>
+														</div>
+													</md-input-container>
+													 <div style="text-align:center;"><br>
+													   <button md-ink-ripple class="md-btn md-raised indigo btn-block p-h-md" style="display:inline; font-size:13px; width: 70%;">Enter </button>
+													  </div>
+													 </form>
+											</div>
+								
+								</md-content>
+							</md-tabs>
+								
+			
+												
+										</div><!--final div -->
+											
+     
+												 
+												 </md-content>
+											
+											</md-tabs>
+										 
+ 
+					
+						 
+				
+				    </div>
+				
+                
+                </div>
+          </div>
+            
+</div>
+
+
+    
+
+
+
+</div>
+
+<script src="scripts/app.min.js"></script>
+<script>
+//alert("here");
+   document.getElementById('mainsignindiv').style.display = 'block';
+  function ToggleForm()
+  {
+   
+      
+    if(document.getElementById('signupwithcompany').style.display == 'none')
+    {
+     
+      document.getElementById('signupwithcompany').style.display = 'block';
+      document.getElementById('signupwithsocial').style.display = 'none';
+      document.getElementById('signin').style.display = 'none'
+    }
+    else
+      document.getElementById('signupwithcompany').style.display = 'none';
+  }
+  function ToggleFormSocial()
+  {
+   
+    if(document.getElementById('signupwithsocial').style.display == 'none')
+    {
+     
+      document.getElementById('signupwithsocial').style.display = 'block';
+      document.getElementById('signupwithcompany').style.display = 'none';
+      //document.getElementById('signin').style.display = 'none'
+    }
+    else
+      document.getElementById('signupwithsocial').style.display = 'none';
+  }
+  function ToggleFormSignIn()
+  {
+   
+    if(document.getElementById('signin').style.display == 'none')
+    {
+     
+      document.getElementById('signin').style.display = 'block';
+      document.getElementById('signupwithcompany').style.display = 'none';
+      document.getElementById('signupwithsocial').style.display = 'none'
+    }
+    else
+      document.getElementById('signin').style.display = 'none';
+  }
+  function showactivation()
+  {
+   
+   
+		document.getElementById('activationcode1').style.display = 'block';
+      document.getElementById('signin').style.display = 'block';
+      document.getElementById('signupwithcompany').style.display = 'none';
+      document.getElementById('signupwithsocial').style.display = 'none';
+	  
+   
+  }
+  
+  function reset()
+  {
+  //alert("here");
+		document.getElementById('activationcode1').style.display = 'none';
+      document.getElementById('signin').style.display = 'block';
+      document.getElementById('signupwithcompany').style.display = 'block';
+      document.getElementById('signupwithsocial').style.display = 'none';
+  }
+</script>
+
+</body>
+
+<!-- Mirrored from flatfull.com/themes/materil/html/signup.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 16 Jul 2015 08:23:00 GMT -->
+</html>

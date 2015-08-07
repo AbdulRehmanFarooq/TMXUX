@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+  <meta charset="utf-8" />
+  <title>TMX | Responsive Web Admin App with AngularJS And Bootstrap</title>
+  <meta name="description" content="app, web app, responsive, responsive layout, admin, admin panel, admin dashboard, flat, flat ui, ui kit, AngularJS, ui route, charts, widgets, components" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+
+   <link rel="stylesheet" href="styles/animate.css/animate.css" type="text/css" />
+
+   <link rel="stylesheet" href="styles/material-design-icons.css" type="text/css" />
+   <link rel="stylesheet" href="styles/angular-material.css" type="text/css" />
+     <link rel="stylesheet" href="styles/font-awesome/css/font-awesome.css" type="text/css" />
+   <link rel="stylesheet" href="styles/app.min.css" type="text/css" />
+
+
+  <!-- ========= Angular Script ======== -->
+  <script src= "scripts/angular.js"></script>
+  <script src= "scripts/angular-material.js"></script>
+  <script src= "scripts/angular-messages.js"></script>
+  <script src= "scripts/angular-animate.js"></script>
+  <script src= "scripts/angular-aria.js"></script>
+  <script src= "scripts/jquery.min.js"></script>
+
+  <script>
+	angular.module('index', ['ngMaterial', 'ngMessages'])
+
+  /**
+   *  Simple controller to build a `user` data model
+   *  that will be used to databinding with `<tf-float>` directives
+   */
+  .controller('indexController', function($scope) {$scope.project = {
+       Agent:     "Owais Hasan",
+       Schemes:     "Fazaia Housing",
+	   title:     "Technical Program Manager",
+       email:     "ipsum@lorem.com",
+       firstName: "",
+       lastName:  "" ,
+       company:   "Google" ,
+       address:   "1600 Amphitheatre Pkwy" ,
+       city:      "Mountain View" ,
+       state:     "CA" ,
+       country:   "USA" ,
+       postalCode : "94043",
+	   rate : ""
+    };
+  })
+	</script>
+  
+</head>
+<body ng-app="index" ng-controller="indexController">
+<div class="app">
+  
+  <!-- aside -->
+ 
+    <div id="leftnav">
+      
+    </div>
+
+  <!-- / aside -->
+  
+  <!-- content -->
+  <div id="content" class="app-content" role="main">
+    <div class="box">
+      <!-- Content Navbar -->
+      <div class="navbar md-whiteframe-z1 no-radius green">
+        <!-- Open side - Naviation on mobile -->
+        <a md-ink-ripple  data-toggle="modal" data-target="#aside" class="navbar-item pull-left visible-xs visible-sm"><i class="mdi-navigation-menu i-24"></i></a>
+        <!-- / -->
+        <!-- Page title - Bind to $state's title -->
+        <div class="navbar-item pull-left h4">Dashboard</div>
+        <!-- / -->
+        <!-- Common tools -->
+        <ul class="nav navbar-tool pull-right">
+          <li>
+            <a md-ink-ripple ui-toggle-class="show" target="#search">
+              <i class="mdi-action-search i-24"></i>
+            </a>
+          </li>
+          <li>
+            <a md-ink-ripple href="settings.html">
+              <i class="icon mdi-action-settings i-24"></i>
+            </a>
+          </li>
+          <li class="dropdown">
+            <a md-ink-ripple data-toggle="dropdown">
+              <i class="mdi-navigation-more-vert i-24"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-scale pull-right pull-up text-color">
+              <li><a href> <i class="icon mdi-action-perm-contact-cal i-20"></i>
+                  <span>My Profile</span></a>
+				  </li>
+				  
+              <li><a href="index.html"> <i class="icon mdi-action-exit-to-app i-20"></i>
+                  <span>Logout</span>
+				  </a>
+				  </li>
+				   <li class="m-v-sm b-b b"></li>
+              <li><div class="nav-item" ui-toggle-class="folded" target="#aside">
+                  <label class="md-check" style="left: 15px;">
+                    <input type="checkbox">
+                    <i class="purple no-icon"></i>
+                    <span class="hidden-folded">Folded aside</span>
+                  </label>
+                </div></li>
+              <li class="divider"></li>
+              <li><a href><i style="color:grey;" class="icon mdi-action-help i-24"></i>
+				<span>Help</span>
+					</a>
+					</li>
+			   <li><a href><i style="color:grey;" class="icon mdi-action-help i-24"></i>
+					<span>Feedback</span>
+					</a>
+				</li>
+			</ul>
+          </li>
+        </ul>
+        <div class="pull-right" ui-view="navbar@"></div>
+        <!-- / -->
+        <!-- Search form -->
+        <div id="search" class="pos-abt w-full h-full green hide">
+          <div class="box">
+            <div class="box-col w-56 text-center">
+              <!-- hide search form -->
+              <a md-ink-ripple class="navbar-item inline"  ui-toggle-class="show" target="#search"><i class="mdi-navigation-arrow-back i-24"></i></a>
+            </div>
+            <div class="box-col v-m">
+              <!-- bind to app.search.content -->
+              <input class="form-control input-lg no-bg no-border" placeholder="Search" ng-model="app.search.content">
+            </div>
+            <div class="box-col w-56 text-center">
+              <a md-ink-ripple class="navbar-item inline"><i class="mdi-av-mic i-24"></i></a>
+            </div>
+          </div>
+        </div>
+        <!-- / -->
+      </div>
+      <!-- Content -->
+
+      <!-- / -->
+    </div>
+
+  </div>
+  <!-- / content -->
+
+</div>
+
+<script src="scripts/app.min.js"></script>
+<script>
+$('#leftnav').load('aside.html');
+</script>
+</body>
+
+<!-- Mirrored from flatfull.com/themes/materil/html/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 16 Jul 2015 08:22:11 GMT -->
+</html>
