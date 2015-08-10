@@ -77,7 +77,7 @@
         <md-input-container>
 			<label style = "text-align: left; float: left; font-size:medium;">User Id</label>
 			<input type="text" name="useridsignin" ng-model="project.useridsignin" tabindex="0" required minlength="6" maxLength="12" />
-			<div ng-messages="myform2.useridsignin.$error">
+			<div ng-messages="myform2.useridsignin.$error" ng-if='myform2.useridsignin.$dirty'>
 				<div ng-message="required">Please enter User Id</div>
 				<div ng-message="minlength">Minimum 6 characters required</div>
 			</div>
@@ -86,7 +86,7 @@
         <md-input-container>
 			<label style = "text-align: left; float: left;font-size:medium;">Password</label>
 			<input type="password" name="passwordsignin" ng-model="project.passwordsignin" tabindex="0" required minlength="8" maxLength="12" />
-			<div ng-messages="myform2.passwordsignin.$error">
+			<div ng-messages="myform2.passwordsignin.$error" ng-if='myform2.passwordsignin.$dirty'>
 				<div ng-message="required">Please enter Password</div>
 				<div ng-message="minlength">Minimum 8 characters required</div>
 			</div>
@@ -97,7 +97,7 @@
             <input type="checkbox" ng-model="agree" required><i class="indigo"></i> <a href> Agree Terms of Use and Privacy Policy</a>
           </label>
           <div class="md-form-group">
-           <button type = "submit" md-ink-ripple  class="md-btn md-raised indigo btn-block p-h-md" style="width: 100%;">Sign In </button>
+           <button type = "submit" md-ink-ripple  class="md-btn indigo btn-block p-h-md" style="width: 100%;">Sign In </button>
            </div>
         </div>
        </form>
@@ -111,42 +111,10 @@
 
       
   </div>
-<div class="modal" id="myModal1" role="dialog" aria-hidden="true">
-	 <div class="modal-dialog">
-                <div class="modal-content">
-					<div class="modal-header green">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title">Activation Code</h4>
-					</div>
-					<div>
-							 <md-tabs md-dynamic-height md-border-bottom md-stretch-tabs md-selected="0">
-								<md-content class="md-padding">
-								
-									<div id="activationcode" name = "sign up" style= "display:block" >   
-												 <form name="myform3" class="ng-valid-max ng-dirty ng-valid-parse ng-valid-md-maxlength ng-valid-number ng-invalid ng-valid-min ng-invalid-required">
-													 <br>
-												   <md-input-container>
-														<label style = "text-align: left; float: left;">Activation Code</label>
-														<input type="text" name="companyname" ng-model="project.name" tabindex="0" required/>
-														<div ng-messages="myform.companyname.$error">
-															<div ng-message="required">Please enter Activation Code</div>
-														</div>
-													</md-input-container>
-													 <div style="text-align:center;"><br>
-													   <button type = "submit" md-ink-ripple data-toggle="modal" data-target="#myModal1" class="md-btn md-raised indogo btn-block p-h-md" style="display:inline; height: 20%; width: 70%;">Sign Up </button>
-													  </div>
-													  </form>
-								
-								</md-content>
-							</md-tabs>
-								
-					</div>
-				</div>
-	</div>
-</div>
+
 </div>
  <div class="modal fade" id="myModal" role="dialog" aria-hidden="true">
-              <div class="modal-dialog modal-sm" >
+              <div class="modal-dialog" >
                 <div class="modal-content">
                   <div class="modal-header green">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -161,60 +129,65 @@
 												<div id="signupwithcompany" name = "sign up" style= "display:block" >   
 												 <form name="myform" class="ng-valid-max ng-dirty ng-valid-parse ng-valid-md-maxlength ng-valid-number ng-invalid ng-valid-min ng-invalid-required" onsubmit="showactivation()">
 													 <br>
-												   <md-input-container>
-														<label style = "text-align: left; float: left; font-size: medium;">Company Name</label>
-														<input type="text" name="companyname" ng-model="project.name" tabindex="0" required/>
-														<div ng-messages="myform.companyname.$error">
-															<div ng-message="required">Please enter company name</div>
-														</div>
+                                                     <div layout layout-sm="column">
+												   <md-input-container style="  margin: 0 60px 0 10px;">
+														<label style = "text-align: left; float: left; font-size: medium;">User Id</label>
+														<input type="text" name="userid" ng-model="project.name" tabindex="0" required/>
+                                                       <div ng-messages='myform.userid.$error' ng-if='myform.userid.$dirty'>
+                                                            <div ng-message='required'>Please Enter User Id</div>
+                                                        </div>
 													</md-input-container>
 												
 													
-													<md-input-container>
-														<label style = "text-align: left; float: left; font-size: medium;">User Id</label>
-														<input type="text" name="userid" ng-model="project.userid" tabindex="0" required minlength="6" maxLength="12" />
-														<div ng-messages="myform.userid.$error">
-															<div ng-message="required">Please enter user Id</div>
+													<md-input-container style="  margin: 0 0px 0 10px;">
+														<label style = "text-align: left; float: left; font-size: medium; margin: 0 10px 0 10px;">Password</label>
+														<input type="password" name="password" ng-model="project.password" tabindex="0" required minlength="6" maxLength="12" />
+														<div ng-messages="myform.password.$error" ng-if='myform.password.$dirty'>
+															<div ng-message="required">Please enter Password</div>
 															<div ng-message="minlength">Minimum 6 characters required</div>
 														</div>
 													</md-input-container>
-												
+												</div>
 													
-													<md-input-container>
-														<label style = "text-align: left; float: left; font-size: medium;">Password</label>
-														<input type="password" name="password" ng-model="project.password" tabindex="0" required minlength="8" maxLength="12" />
-														<div ng-messages="myform.password.$error">
-															<div ng-message="required">Please enter password</div>
-															<div ng-message="minlength">Minimum 8 characters required</div>
-														</div>
-													</md-input-container>
-													
-													
-													<md-input-container>
-														<label style = "text-align: left; float: left; font-size: medium;">FirstName</label>
-														<input type="text" name="firstname" ng-model="project.firstName" tabindex="0" required/>
-														<div ng-messages="myform.firstname.$error">
-															<div ng-message="required">Please enter FirstName</div>
-														</div>
-													</md-input-container>
-													
-													
-												   <md-input-container>
-														<label style = "text-align: left; float: left; font-size: medium;">LastName</label>
-														<input type="text" name="lastname" ng-model="project.lastName" tabindex="0" required/>
-														<div ng-messages="myform.lastname.$error">
-															<div ng-message="required">Please enter LastName</div>
+													 <div layout layout-sm="column">
+												   <md-input-container style="  margin: 0 60px 0 10px;">
+														<label style = "text-align: left; float: left; font-size: medium;">First Name</label>
+														<input type="text" name="firstname" ng-model="project.firstname" tabindex="0" required/>
+														<div ng-messages="myform.firstname.$error" ng-if='myform.firstname.$dirty'>
+															<div ng-message="required">Please enter First Name</div>
 														</div>
 													</md-input-container>
 												
 													
-												   <md-input-container>
-														<label style = "text-align: left; float: left; font-size: medium;">Phone No</label>
-														<input type="text" name="phoneno" ng-model="project.phoneno" tabindex="0"required/>
-														<div ng-messages="myform.phoneno.$error">
+													<md-input-container style="  margin: 0 0px 0 10px;">
+														<label style = "text-align: left; float: left; font-size: medium; margin: 0 10px 0 10px;">Last Name</label>
+														<input type="text" name="lastname" ng-model="project.lastname" tabindex="0" required minlength="6" maxLength="12" />
+														<div ng-messages="myform.lastname.$error" ng-if='myform.lastname.$dirty'>
+															<div ng-message="required">Please enter Last Name</div>
+															<div ng-message="minlength">Minimum 6 characters required</div>
+														</div>
+													</md-input-container>
+												</div>
+													
+												   <div layout layout-sm="column">
+												   <md-input-container style="  margin: 0 60px 0 10px;">
+														<label style = "text-align: left; float: left; font-size: medium;">Company Name</label>
+														<input type="text" name="companyname" ng-model="project.companyname" tabindex="0" required/>
+														<div ng-messages="myform.companyname.$error" ng-if='myform.companyname.$dirty'>
+															<div ng-message="required">Please enter Company Name</div>
+														</div>
+													</md-input-container>
+												
+													
+													<md-input-container style="  margin: 0 0px 0 10px;">
+														<label style = "text-align: left; float: left; font-size: medium; margin: 0 10px 0 10px;">Phone No</label>
+														<input type="text" name="phoneno" ng-model="project.phoneno" tabindex="0" required minlength="6" maxLength="12" />
+														<div ng-messages="myform.phoneno.$error"  ng-if='myform.phoneno.$dirty'>
 															<div ng-message="required">Please enter Phone No</div>
+															<div ng-message="minlength">Minimum 6 characters required</div>
 														</div>
 													</md-input-container>
+												</div>
 													<br>
 													
 													<div class="m-b-md">
@@ -222,14 +195,14 @@
 														<input type="checkbox" ng-model="agree" required><i class="indigo"></i> <a href style="font-size: 13px;"> Agree Terms of Use and Privacy Policy</a>
 													  </label>
 													  <div style="text-align:center;"><br>
-													   <button type = "submit" md-ink-ripple class="md-btn md-raised indigo btn-block p-h-md" style="display:inline; font-size:13px; width: 70%;">Sign Up </button>
+													   <button type = "submit" md-ink-ripple class="md-btn indigo btn-block p-h-md" style="display:inline; font-size:13px; width: 40%;">Sign Up </button>
 													   </div>
 													</div>
 												</form>
 												<div style="text-align:center;">- OR -</div><br>
 												<div style="text-align:center;">
-												 <button md-ink-ripple onclick="ToggleFormSocial()" class="md-btn md-raised indigo btn-block p-h-md" style="background-image: url(images/signinfb.png);
-													background-repeat: round; color: transparent;  width: 70%">
+												 <button md-ink-ripple onclick="ToggleFormSocial()" class="md-btn indigo btn-block p-h-md" style="background-image: url(images/signinfb.png);
+													background-repeat: round; color: transparent;  width: 40%">
 													Facebook Signin
 												</button>
 												</div>
@@ -245,7 +218,7 @@
 												<md-input-container>
 													<label style = "text-align: left; float: left; font-size: medium;">Company Name</label>
 													<input type="text" name="companynameSocialForm" ng-model="project.companynameSocialForm" tabindex="0" required/>
-													<div ng-messages="myform1.companynameSocialForm.$error">
+													<div ng-messages="myform1.companynameSocialForm.$error" ng-if='myform1.companynameSocialForm.$dirty'>
 														<div ng-message="required">Please enter Company Name</div>
 													</div>
 												</md-input-container>
@@ -254,7 +227,7 @@
 												<md-input-container>
 													<label style = "text-align: left; float: left; font-size: medium;">Phone No</label>
 													<input type="text" name="phonenoSocialForm" ng-model="project.phonenoSocialForm" tabindex="0" required/>
-													<div ng-messages="myform1.phonenoSocialForm.$error">
+													<div ng-messages="myform1.phonenoSocialForm.$error" ng-if='myform1.phonenoSocialForm.$dirty'>
 														<div ng-message="required">Please enter Phone No</div>
 													</div>
 												</md-input-container>
@@ -266,24 +239,24 @@
 													<input type="checkbox" ng-model="agree" required><i class="indigo"></i> <a href style="font-size: 13px;"> Agree Terms of Use and Privacy Policy</a>
 												  </label>
 												   <div style="text-align:center;"><br>
-													   <button type = "submit" md-ink-ripple  class="md-btn md-raised indigo btn-block p-h-md" style="display:inline; font-size:13px; width: 70%;">Sign Up</button>
+													   <button type = "submit" md-ink-ripple  class="md-btn indigo btn-block p-h-md" style="display:inline; font-size:13px; width: 70%;">Sign Up</button>
 													</div>
 												</div>
 											   </form>
 											</div>
 											
 											<div id="activationcode1" name = "sign up" style= "display:none" >   
-												 <form name="myform3" class="ng-valid-max ng-dirty ng-valid-parse ng-valid-md-maxlength ng-valid-number ng-invalid ng-valid-min ng-invalid-required" >
+												 <form name="myform4" class="ng-valid-max ng-dirty ng-valid-parse ng-valid-md-maxlength ng-valid-number ng-invalid ng-valid-min ng-invalid-required" >
 													 <br>
 												   <md-input-container>
 														<label style = "text-align: left; float: left;  font-size: medium;">Activation Code</label>
 														<input type="text" name="companyname" ng-model="project.activationcode" tabindex="0" required/>
-														<div ng-messages="myform.companyname.$error">
+														<div ng-messages="myform4.companyname.$error" ng-if='myform4.companyname.$dirty'>
 															<div ng-message="required">Please enter Activation Code</div>
 														</div>
 													</md-input-container>
 													 <div style="text-align:center;"><br>
-													   <button md-ink-ripple class="md-btn md-raised indigo btn-block p-h-md" style="display:inline; font-size:13px; width: 70%;">Enter </button>
+													   <button md-ink-ripple class="md-btn indigo btn-block p-h-md" style="display:inline; font-size:13px; width: 70%;">Enter </button>
 													  </div>
 													 </form>
 											</div>
