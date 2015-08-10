@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
+<!--I made achange-->
 <head>
   <meta charset="utf-8" />
   <title>TMX | Responsive Web Admin App with AngularJS And Bootstrap</title>
@@ -10,31 +10,41 @@
 
 
    <link rel="stylesheet" href="styles/animate.css/animate.css" type="text/css" />
-
+   
    <link rel="stylesheet" href="styles/material-design-icons.css" type="text/css" />
-   <link rel="stylesheet" href="styles/angular-material.css" type="text/css" />
-     <link rel="stylesheet" href="styles/font-awesome/css/font-awesome.css" type="text/css" />
+      <link rel="stylesheet" href="styles/angular-material.css" type="text/css" />
+	     <link rel="stylesheet" href="styles/font-awesome/css/font-awesome.css" type="text/css" />
    <link rel="stylesheet" href="styles/app.min.css" type="text/css" />
-
-
+   
+     <link rel="stylesheet" href="styles/kendo.common-material.min.css" />
+    <link rel="stylesheet" href="styles/kendo.material.min.css" />
+     <link rel="stylesheet" href="styles/jquery/waves/dist/waves.css" type="text/css" />
   <!-- ========= Angular Script ======== -->
-  <script src= "scripts/angular.js"></script>
-  <script src= "scripts/angular-material.js"></script>
-  <script src= "scripts/angular-messages.js"></script>
-  <script src= "scripts/angular-animate.js"></script>
-  <script src= "scripts/angular-aria.js"></script>
-  <script src= "scripts/jquery.min.js"></script>
-
+	  
+	  <script src="scripts/app.min.js"></script>  
+	  <script src="https://kendo.cdn.telerik.com/2015.2.624/js/jquery.min.js"></script>
+	  <script src="https://kendo.cdn.telerik.com/2015.2.624/js/angular.min.js"></script>
+	  <script src="https://kendo.cdn.telerik.com/2015.2.624/js/kendo.all.min.js"></script>
+	  <script src= "scripts/angular-material.js"></script>
+	  <script src= "scripts/angular-messages.js"></script>
+	  <script src= "scripts/angular-animate.js"></script>
+	  <script src= "scripts/angular-aria.js"></script>
+	
+    
   <script>
-	angular.module('index', ['ngMaterial', 'ngMessages'])
+	angular.module('ManageCustomers', ['ngMaterial', 'ngMessages','kendo.directives'])
 
   /**
    *  Simple controller to build a `user` data model
    *  that will be used to databinding with `<tf-float>` directives
    */
-  .controller('indexController', function($scope) {$scope.project = {
-       Agent:     "Owais Hasan",
-       Schemes:     "Fazaia Housing",
+  .controller('ManageController', function($scope, $timeout, $mdSidenav, $mdUtil, $log) {
+  
+  	$scope.toggleLeft = buildToggler('left');
+    $scope.toggleRight = buildToggler('right');
+  $scope.project = {
+       Agent:     "10",
+       Schemes:     "5",
 	   title:     "Technical Program Manager",
        email:     "ipsum@lorem.com",
        firstName: "",
@@ -45,21 +55,287 @@
        state:     "CA" ,
        country:   "USA" ,
        postalCode : "94043",
-	   rate : ""
+	   rate : "",
+	   percSuccess: "80%",
+	   avgSales: "25000",
+	   noVisits: "5",
+	   rank : "2",
+	   returnExecution: "5"
+	   
+    };
+	$scope.mainGridOptions = {
+               
+        dataSource:{
+		  
+		  data:[
+                           { CustomerCode:"2105608-AN-0001-KHI",CustomerName:"<a  md-ink-ripple  href=\"#0\" ng-click=\"toggleRight()\" class=\"cd-btn\">Metro Store (AHI Rd)</a>",CustomerType:"GT",CustomerClass:"SG",Distributor:"an Distributor",CustomerLocation:"Gulshan-e-Iqbal ",PopStatus:"Order",CreditStatus:"",CreditLimit:"",Edit:"  <a md-ink-ripple ><i data-toggle=\"modal\" data-target=\"#myModal\" class=\"mdi-editor-mode-edit i-24\"></i></a><a><i data-toggle=\"modal\" class=\"mdi-action-delete i-24\"></i></a>"},
+						    { CustomerCode:"2106338-AN-0001-KHI",CustomerName:"<a  md-ink-ripple  href=\"#0\" ng-click=\"toggleRight()\" class=\"cd-btn\">FRESH BAKERS</a>",CustomerType:"GT",CustomerClass:"SG",Distributor:"An Distributor",CustomerLocation:"Gulshan-e-Iqbal ",PopStatus:"Order",CreditStatus:"",CreditLimit:"",Edit:"  <a md-ink-ripple ><i data-toggle=\"modal\" data-target=\"#myModal\" class=\"mdi-editor-mode-edit i-24\"></i></a><a><i data-toggle=\"modal\" class=\"mdi-action-delete i-24\"></i></a>" }
+			   ],
+          pageSize:20
+        },
+        resizable:true,
+		pageable:true,
+        columns: 
+                        [
+						{
+                            field: "CustomerCode",
+                           
+
+                        },
+                        {
+                            field: "CustomerName",
+							encoded:false,
+                            
+                            title: "Customer Name"
+                           
+                        },{
+                            field: "CustomerType",
+                           
+                        },{
+                            field: "CustomerClass",
+                            title: "CustomerClass",
+                           
+                        },
+						{
+                            field: "Distributor", 
+                            title: "Distributor",
+                           
+                        },
+						{
+                            field: "CustomerLocation",
+                            title: "CustomerLocation",
+							width: 140
+                        },
+						{
+                            field: "PopStatus",
+                            title: "PopStatus",
+                           
+                        },
+						{
+                            field: "Edit",
+							title:"  ",
+							encoded: false,
+                            width: 100,
+                            
+                        },
+						
+						],
+						  editable: "popup"
+        
+      
+            };
+
+      /**
+     * Build handler to open/close a SideNav; when animation finishes
+     * report completion in console
+     */
+    function buildToggler(navID) {
+      var debounceFn =  $mdUtil.debounce(function(){
+            $mdSidenav(navID)
+              .toggle()
+              .then(function () {
+                $log.debug("toggle " + navID + " is done");
+              });
+			   $('aside').addClass('folded');
+          },300);
+      return debounceFn;
+    }
+  })
+  .controller('LeftCtrl', function ($scope, $timeout, $mdSidenav, $log) {
+    $scope.close = function () {
+      $mdSidenav('left').close()
+        .then(function () {
+          $log.debug("close LEFT is done");
+        });
     };
   })
+  .controller('RightCtrl', function ($scope, $timeout, $mdSidenav, $log) {
+    $scope.close = function () {
+      $mdSidenav('right').close()
+        .then(function () {
+          $log.debug("close RIGHT is done");
+        });
+    };
+  });
+
+		
 	</script>
+   
   
+
 </head>
-<body ng-app="index" ng-controller="indexController">
-<div class="app">
+<body ng-app="ManageCustomers" ng-controller="ManageController" >
+<div class="app" ">
   
   <!-- aside -->
- 
-    <div id="leftnav">
-      
-    </div>
+  <aside id="aside" class="app-aside modal fade " role="menu">
+    <div class="left">
+      <div class="box bg-white">
+  <div class="navbar md-whiteframe-z1 no-radius green">
+      <!-- brand -->
+      <a style="display: block;    float: none;    min-height: 64px;    font-size: 20px;    font-weight: bold;
+    padding: 0 16px;    line-height: 64px;">
+	  
+        <img class="hidden-folded m-l inline" src="images/logo-white.png" alt="." style="max-height: 36px; vertical-align: -20%;">
+        
+      </a>
+      <!-- / brand -->
+  </div>
+  <div class="box-row">
+    <div class="box-cell scrollable hover">
+      <div class="box-inner">
+        <div class="p hidden-folded blue-50" style="background-image:url(images/bg.png); background-size:cover">
+          <div class="rounded w-64 bg-white inline pos-rlt">
+            <img src="images/a0.jpg" class="img-responsive rounded">
+          </div>
+          <a class="block m-t-sm" target="#nav, #account"><!-- ui-toggle-class="hide, show" -->
+            <span class="block font-bold">Arsalan Ahmed</span>
+            <!--<span class="pull-right auto">
+              <i class="fa inline fa-caret-down"></i>
+              <i class="fa none fa-caret-up"></i>
+            </span>-->
+            arsalan@techlogix.com
+          </a>
+        </div>
+        <div id="nav">
+          <nav ui-nav>
+			  <ul class="nav">
+				<li class="nav-header m-v-sm hidden-folded">
+				  Menu
+				</li>
+				<li>
+				  <a md-ink-ripple href="dashboard.html">
+					
+					<i class="icon mdi-action-settings-input-svideo i-20"></i>
+					<span class="font-normal">Dashboard</span>
+				  </a>
+				</li>
+				<li>
+				  <a md-ink-ripple>
+				  <span class="pull-right text-muted">
+				  
+                          <i class="fa fa-caret-down"></i>
+                        </span>
+						<!--<i class="pull-right up"><b class="badge no-bg">11</b></i>-->
+					<i class="icon mdi-action-subject i-20"></i>
+					<span class="font-normal">Master Data</span>
+				  </a>
+				  <ul class="nav nav-sub">
+				   <li><a md-ink-ripple href="ManageCustomers.html">Customer</a></li>
+				  <li><a md-ink-ripple href="#">Company</a></li>
+				  <li><a md-ink-ripple href="#">Product</a></li>
+				  <li><a md-ink-ripple href="#">Location</a></li>
+				  <li><a md-ink-ripple href="#">Scheme</a></li>
+				  <li><a md-ink-ripple href="#">Supplier</a></li>
+				  <li><a md-ink-ripple href="#">Route</a></li>
+				  <li><a md-ink-ripple href="ManageDistributor.html">Distributor</a></li>
+				  <li><a md-ink-ripple href="#">Sales</a></li>
+				  <li><a md-ink-ripple href="#">Price List</a></li>
+				  <li><a md-ink-ripple href="#">Stock</a></li>
+				  </ul>
+				</li>
+				<li>
+				  <a md-ink-ripple>
+				  <span class="pull-right text-muted">
+                          <i class="fa fa-caret-down"></i>
+                        </span>
+					<i class="icon mdi-image-flash-on i-20"></i>
+					<span class="font-normal">Transaction</span>
+				  </a>
+				  <ul class="nav nav-sub">
+					<li><a href="#">Order</a></li>
+				    <li><a href="#">Payment</a></li>
+				    <li><a href="#">Bank Deposit</a></li>
+				    <li><a href="#">Planogram Management</a></li>
+			    </ul>
+				</li>
+				<li>
+				  <a md-ink-ripple>
+				  <span class="pull-right text-muted">
+                          <i class="fa fa-caret-down"></i>
+                        </span>
+					<i class="icon mdi-editor-insert-drive-file i-20"></i>
+					<span class="font-normal">Administration </span>
+				  </a>
+				  <ul class="nav nav-sub">
+					 <li><a href="#">Device Management</a></li>
+					  <li><a href="#">lookup Management</a></li>
+					  <li><a href="#">Role Management</a></li>
+					  <li><a href="#">Change Password</a></li>
+					  <li><a href="#">User Management</a></li>
+					  </ul>
+			   </li>
+				<li>
+				<a md-ink-ripple>
+				<span class="pull-right text-muted">
+                          <i class="fa fa-caret-down"></i>
+                        </span>
+				<i class="icon mdi-device-multitrack-audio i-20"></i>
+				<span class="font-normal">Reports</span>
+				</a>
+				<ul class="nav nav-sub">
+				 <li><a href="#">Sales By Date</a></li>
+				 <li><a href="#">Sales By TSO</a></li>
+				 <li><a href="#">Sales By Location</a></li> 
+				</ul>
+				</li>
+				            
+			  </ul>
+		    </nav>
 
+        </div>
+        <div id="account" class="hide m-v-xs">
+          <nav>
+            <ul class="nav">
+              <li>
+                <a md-ink-ripple href="page.profile.html">
+                  <i class="icon mdi-action-perm-contact-cal i-20"></i>
+                  <span>My Profile</span>
+                </a>
+              </li>
+
+              <li>
+                <a md-ink-ripple href="lockme.html">
+                  <i class="icon mdi-action-exit-to-app i-20"></i>
+                  <span>Logout</span>
+                </a>
+              </li>
+              <li class="m-v-sm b-b b"></li>
+              <li>
+                <div class="nav-item" ui-toggle-class="folded" target="#aside">
+                  <label class="md-check">
+                    <input type="checkbox">
+                    <i class="purple no-icon"></i>
+                    <span class="hidden-folded">Folded aside</span>
+                  </label>
+                </div>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+  <nav>
+    <ul class="nav b-t b">
+      <li>
+        <a >
+           <i class="icon mdi-action-help i-20"></i>
+          <span>Help</span>
+        </a>
+      </li>
+	   <li>
+        <a >
+           <i class="icon mdi-action-help i-20"></i>
+          <span>Feedback</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+    </div>
+  </aside>
   <!-- / aside -->
   
   <!-- content -->
@@ -81,7 +357,7 @@
             </a>
           </li>
           <li>
-            <a md-ink-ripple href="settings.html">
+             <a md-ink-ripple href="settings.html">
               <i class="icon mdi-action-settings i-24"></i>
             </a>
           </li>
@@ -90,7 +366,7 @@
               <i class="mdi-navigation-more-vert i-24"></i>
             </a>
             <ul class="dropdown-menu dropdown-menu-scale pull-right pull-up text-color">
-              <li><a href> <i class="icon mdi-action-perm-contact-cal i-20"></i>
+              <li><a href="#"> <i class="icon mdi-action-perm-contact-cal i-20"></i>
                   <span>My Profile</span></a>
 				  </li>
 				  
@@ -129,7 +405,7 @@
             </div>
             <div class="box-col v-m">
               <!-- bind to app.search.content -->
-              <input class="form-control input-lg no-bg no-border" placeholder="Search" ng-model="app.search.content">
+              <input id="txtSearchString" class="form-control input-lg no-bg no-border" placeholder="Search" >
             </div>
             <div class="box-col w-56 text-center">
               <a md-ink-ripple class="navbar-item inline"><i class="mdi-av-mic i-24"></i></a>
@@ -139,20 +415,651 @@
         <!-- / -->
       </div>
       <!-- Content -->
+      <div class="box-row">
+	    <div class="box-cell">
+          
+		<div class="box-inner padding ng-scope" ui-view="" id="view" style="display:none;">  <div class="row row-xs ng-scope">
+			<div class="col-sm-4">
+							<md-card>
+						 
+						  <md-card-content>
+						    <div id="example">
+    <div class="demo-section k-content">
+        <div id="chart1"></div>
+    </div>
+    <script>
+        function createChart() {
+            $("#chart1").kendoChart({
+               
+                legend: {
+                    position: "top"
+                },
+				
+				 chartArea: {
+					width: 340,
+					height: 250
+				},
+				//seriesColors: ["#ee9c4f",indigo],
+                series: [{
+                    type: "line",
+                    data: [45, 15, 55, 40, 30, 35],
+                    name: "Target",
+                    color: "#ee9c4f",
+                    axis: "sales"
+                }, {
+                    type: "bar",
+                    data: [50, 20, 55, 35, 28, 30],
+                    name: "Sales",
+                    color: "#3f51b5",
+                    axis: "sales"
+                }],
+                valueAxes: [{
+				labels: {
+                        format: "{0}k"
+                    },
+                    name: "sales",
+					//color: "#007eff",
+                    min: 0,
+                    max: 70
+                }],
+				
+                categoryAxis: {
+                    categories: ["Jan", "Mar", "May", "Jul", "Sep", "Nov"],
+                    // Align the first two value axes to the left
+                    // and the last two to the right.
+                    //
+                    // Right alignment is done by specifying a
+                    // crossing value greater than or equal to
+                    // the number of categories.
+                    axisCrossingValues: [0, 32],
+                    justified: true
+                },
+                tooltip: {
+                    visible: true,
+                    format: "{0}k",
+                    template: "#= category #/03: #= value #"
+                }
+            });
+        }
 
+        $(document).ready(createChart);
+        $(document).bind("kendo:skinChange", createChart);
+    </script>
+</div>
+						   
+						  </md-card-content>
+						  
+						</md-card>
+	 </div>
+    <div class="col-sm-4">
+      					<md-card>
+						 
+						  <md-card-content>
+						    <div id="example">
+    <div class="demo-section k-content">
+        <div id="chart2"></div>
+    </div>
+    <script>
+        function createChart() {
+            $("#chart2").kendoChart({
+               
+                legend: {
+                    position: "top"
+                },
+				
+				 chartArea: {
+					width: 340,
+					height: 250
+				},
+				//seriesColors: ["#ee9c4f",indigo],
+                series: [{
+                    type: "line",
+                    data: [45, 15, 55, 40, 30, 35],
+                    name: "Target",
+                    color: "#ee9c4f",
+                    axis: "sales"
+                }, {
+                    type: "bar",
+                    data: [50, 20, 55, 35, 28, 30],
+                    name: "Sales",
+                    color: "#3f51b5",
+                    axis: "sales"
+                }],
+                valueAxes: [{
+				labels: {
+                        format: "{0}k"
+                    },
+                    name: "sales",
+					//color: "#007eff",
+                    min: 0,
+                    max: 70
+                }],
+				
+                categoryAxis: {
+                    categories: ["Jan", "Mar", "May", "Jul", "Sep", "Nov"],
+                    // Align the first two value axes to the left
+                    // and the last two to the right.
+                    //
+                    // Right alignment is done by specifying a
+                    // crossing value greater than or equal to
+                    // the number of categories.
+                    axisCrossingValues: [0, 32],
+                    justified: true
+                },
+                tooltip: {
+                    visible: true,
+                    format: "{0}k",
+                    template: "#= category #/03: #= value #"
+                }
+            });
+        }
+
+        $(document).ready(createChart);
+        $(document).bind("kendo:skinChange", createChart);
+    </script>
+</div>
+						   
+						  </md-card-content>
+						  
+						</md-card>
+    </div>
+    <div class="col-sm-4">
+							<md-card>
+						 
+						  <md-card-content>
+						    <div id="example">
+    <div class="demo-section k-content">
+        <div id="chart3"></div>
+    </div>
+    <script>
+        function createChart() {
+            $("#chart3").kendoChart({
+               
+                legend: {
+                    position: "top"
+                },
+				
+				 chartArea: {
+					width: 340,
+					height: 250
+				},
+				//seriesColors: ["#ee9c4f",indigo],
+                series: [{
+                    type: "line",
+                    data: [45, 15, 55, 40, 30, 35],
+                    name: "Target",
+                    color: "#ee9c4f",
+                    axis: "sales"
+                }, {
+                    type: "bar",
+                    data: [50, 20, 55, 35, 28, 30],
+                    name: "Sales",
+                    color: "#3f51b5",
+                    axis: "sales"
+                }],
+                valueAxes: [{
+				labels: {
+                        format: "{0}k"
+                    },
+                    name: "sales",
+					//color: "#007eff",
+                    min: 0,
+                    max: 70
+                }],
+				
+                categoryAxis: {
+                    categories: ["Jan", "Mar", "May", "Jul", "Sep", "Nov"],
+                    // Align the first two value axes to the left
+                    // and the last two to the right.
+                    //
+                    // Right alignment is done by specifying a
+                    // crossing value greater than or equal to
+                    // the number of categories.
+                    axisCrossingValues: [0, 32],
+                    justified: true
+                },
+                tooltip: {
+                    visible: true,
+                    format: "{0}k",
+                    template: "#= category #/03: #= value #"
+                }
+            });
+        }
+
+        $(document).ready(createChart);
+        $(document).bind("kendo:skinChange", createChart);
+    </script>
+</div>
+						   
+						  </md-card-content>
+						  
+						</md-card>
+	 </div>
+  </div>
+  <div class="row row-xs ng-scope" ng-controller="ChartCtrl">
+    <div class="col-sm-4">
+			<md-card>
+						 
+						  <md-card-content>
+						<div id="example">
+								<div class="demo-section k-content">
+        <div id="chart4" ></div>
+    </div>
+    <script>
+        function createChart() {
+            $("#chart4").kendoChart({
+                legend: {
+                    position: "top"
+                },
+                chartArea: {
+					width: 340,
+					height: 250
+				},
+				seriesColors: ["#4CAF50","#ee9c4f"],
+                series: [{
+                    name: "Payment",
+                    data: [3, 7, 7, 5, 8, 6],
+                }, {
+                    name: "Balance",
+                    data: [4, 7, 7, 6, 8, 8]
+                }],
+                valueAxis: {
+                    labels: {
+                        format: "{0}k"
+                    },
+                    line: {
+                        visible: false
+                    },
+					min: 0,
+                    max: 12,
+                    axisCrossingValue: 0
+                },
+                categoryAxis: {
+                    categories: ['Jan','Feb' , 'Mar', 'Apr', 'May', 'Jun'],
+                    line: {
+                        visible: false
+                    },
+                    labels: {
+                        padding: {top: 0}
+                    }
+                },
+                tooltip: {
+                    visible: true,
+                    format: "{0}",
+                    template: "#= series.name #: #= value #"
+                }
+            });
+        }
+
+        $(document).ready(createChart);
+        $(document).bind("kendo:skinChange", createChart);
+    </script>
+</div>
+
+
+							
+						  </md-card-content>
+						  
+						</md-card>
+				 
+
+	  </div>
+    <div class="col-sm-4">
+		<md-card>
+						 
+						  <md-card-content>
+						<div id="example">
+								<div class="demo-section k-content">
+        <div id="chart5" ></div>
+    </div>
+    <script>
+        function createChart() {
+            $("#chart5").kendoChart({
+                legend: {
+                    position: "top"
+                },
+                chartArea: {
+					width: 340,
+					height: 250
+				},
+				seriesColors: ["#4CAF50","#ee9c4f"],
+                series: [{
+                    name: "Payment",
+                    data: [3, 7, 7, 5, 8, 6],
+                }, {
+                    name: "Balance",
+                    data: [4, 7, 7, 6, 8, 8]
+                }],
+                valueAxis: {
+                    labels: {
+                        format: "{0}k"
+                    },
+                    line: {
+                        visible: false
+                    },
+					min: 0,
+                    max: 12,
+                    axisCrossingValue: 0
+                },
+                categoryAxis: {
+                    categories: ['Jan','Feb' , 'Mar', 'Apr', 'May', 'Jun'],
+                    line: {
+                        visible: false
+                    },
+                    labels: {
+                        padding: {top: 0}
+                    }
+                },
+                tooltip: {
+                    visible: true,
+                    format: "{0}",
+                    template: "#= series.name #: #= value #"
+                }
+            });
+        }
+
+        $(document).ready(createChart);
+        $(document).bind("kendo:skinChange", createChart);
+    </script>
+</div>
+
+
+							
+						  </md-card-content>
+						  
+						</md-card>
+				 
+	  </div>
+    <div class="col-sm-4">
+			<md-card>
+						 
+						  <md-card-content>
+						<div id="example">
+								<div class="demo-section k-content">
+        <div id="chart6" ></div>
+    </div>
+    <script>
+        function createChart() {
+            $("#chart6").kendoChart({
+                legend: {
+                    position: "top"
+                },
+                chartArea: {
+					width: 340,
+					height: 250
+				},
+				seriesColors: ["#4CAF50","#ee9c4f"],
+                series: [{
+                    name: "Payment",
+                    data: [3, 7, 7, 5, 8, 6],
+                }, {
+                    name: "Balance",
+                    data: [4, 7, 7, 6, 8, 8]
+                }],
+                valueAxis: {
+                    labels: {
+                        format: "{0}k"
+                    },
+                    line: {
+                        visible: false
+                    },
+					min: 0,
+                    max: 12,
+                    axisCrossingValue: 0
+                },
+                categoryAxis: {
+                    categories: ['Jan','Feb' , 'Mar', 'Apr', 'May', 'Jun'],
+                    line: {
+                        visible: false
+                    },
+                    labels: {
+                        padding: {top: 0}
+                    }
+                },
+                tooltip: {
+                    visible: true,
+                    format: "{0}",
+                    template: "#= series.name #: #= value #"
+                }
+            });
+        }
+
+        $(document).ready(createChart);
+        $(document).bind("kendo:skinChange", createChart);
+    </script>
+</div>
+
+
+							
+						  </md-card-content>
+						  
+						</md-card>
+				 
+	</div>    
+  </div>
+  <div class="row row-xs ng-scope" ng-controller="VectorMapCtrl">
+			<div class="col-sm-4">
+			<md-card>
+						 
+						  <md-card-content>
+						<div id="example">
+								<div class="demo-section k-content">
+        <div id="chart7" ></div>
+    </div>
+    <script>
+        function createChart() {
+            $("#chart7").kendoChart({
+                legend: {
+                    position: "top"
+                },
+                chartArea: {
+					width: 340,
+					height: 250
+				},
+				seriesColors: ["#4CAF50","#ee9c4f"],
+                series: [{
+                    name: "Payment",
+                    data: [3, 7, 7, 5, 8, 6],
+                }, {
+                    name: "Balance",
+                    data: [4, 7, 7, 6, 8, 8]
+                }],
+                valueAxis: {
+                    labels: {
+                        format: "{0}k"
+                    },
+                    line: {
+                        visible: false
+                    },
+					min: 0,
+                    max: 12,
+                    axisCrossingValue: 0
+                },
+                categoryAxis: {
+                    categories: ['Jan','Feb' , 'Mar', 'Apr', 'May', 'Jun'],
+                    line: {
+                        visible: false
+                    },
+                    labels: {
+                        padding: {top: 0}
+                    }
+                },
+                tooltip: {
+                    visible: true,
+                    format: "{0}",
+                    template: "#= series.name #: #= value #"
+                }
+            });
+        }
+
+        $(document).ready(createChart);
+        $(document).bind("kendo:skinChange", createChart);
+    </script>
+</div>
+
+
+							
+						  </md-card-content>
+						  
+						</md-card>
+				 
+
+	  </div>
+    <div class="col-sm-4">
+		<md-card>
+						 
+						  <md-card-content>
+						<div id="example">
+								<div class="demo-section k-content">
+        <div id="chart8" ></div>
+    </div>
+    <script>
+        function createChart() {
+            $("#chart8").kendoChart({
+                legend: {
+                    position: "top"
+                },
+                chartArea: {
+					width: 340,
+					height: 250
+				},
+				seriesColors: ["#4CAF50","#ee9c4f"],
+                series: [{
+                    name: "Payment",
+                    data: [3, 7, 7, 5, 8, 6],
+                }, {
+                    name: "Balance",
+                    data: [4, 7, 7, 6, 8, 8]
+                }],
+                valueAxis: {
+                    labels: {
+                        format: "{0}k"
+                    },
+                    line: {
+                        visible: false
+                    },
+					min: 0,
+                    max: 12,
+                    axisCrossingValue: 0
+                },
+                categoryAxis: {
+                    categories: ['Jan','Feb' , 'Mar', 'Apr', 'May', 'Jun'],
+                    line: {
+                        visible: false
+                    },
+                    labels: {
+                        padding: {top: 0}
+                    }
+                },
+                tooltip: {
+                    visible: true,
+                    format: "{0}",
+                    template: "#= series.name #: #= value #"
+                }
+            });
+        }
+
+        $(document).ready(createChart);
+        $(document).bind("kendo:skinChange", createChart);
+    </script>
+</div>
+
+
+							
+						  </md-card-content>
+						  
+						</md-card>
+				 
+	  </div>
+    <div class="col-sm-4">
+			<md-card>
+						 
+						  <md-card-content>
+						<div id="example">
+								<div class="demo-section k-content">
+        <div id="chart9" ></div>
+    </div>
+    <script>
+        function createChart() {
+            $("#chart9").kendoChart({
+                legend: {
+                    position: "top"
+                },
+                chartArea: {
+					width: 340,
+					height: 250
+				},
+				seriesColors: ["#4CAF50","#ee9c4f"],
+                series: [{
+                    name: "Payment",
+                    data: [3, 7, 7, 5, 8, 6],
+                }, {
+                    name: "Balance",
+                    data: [4, 7, 7, 6, 8, 8]
+                }],
+                valueAxis: {
+                    labels: {
+                        format: "{0}k"
+                    },
+                    line: {
+                        visible: false
+                    },
+					min: 0,
+                    max: 12,
+                    axisCrossingValue: 0
+                },
+                categoryAxis: {
+                    categories: ['Jan','Feb' , 'Mar', 'Apr', 'May', 'Jun'],
+                    line: {
+                        visible: false
+                    },
+                    labels: {
+                        padding: {top: 0}
+                    }
+                },
+                tooltip: {
+                    visible: true,
+                    format: "{0}",
+                    template: "#= series.name #: #= value #"
+                }
+            });
+        }
+
+        $(document).ready(createChart);
+        $(document).bind("kendo:skinChange", createChart);
+    </script>
+</div>
+
+
+							
+						  </md-card-content>
+						  
+						</md-card>
+				 
+	</div>    
+
+	</div>
+  </div>
+</div>
+		  </div>
+      </div>
       <!-- / -->
     </div>
 
   </div>
   <!-- / content -->
+  
+	
 
-</div>
+          <!-- End Modal Code -->
+  
+  
 
-<script src="scripts/app.min.js"></script>
 <script>
-$('#leftnav').load('aside.html');
+	document.getElementById('view').style.display = '';
+	
 </script>
 </body>
 
-<!-- Mirrored from flatfull.com/themes/materil/html/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 16 Jul 2015 08:22:11 GMT -->
+
 </html>
