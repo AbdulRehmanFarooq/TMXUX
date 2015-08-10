@@ -438,10 +438,8 @@
  
             
             
-                 <button md-ink-ripple  data-toggle="modal" data-target="#myModal"  style="position:absolute; right: 10%;  margin-top:10px; margin-bottom:10px; "                        style=" margin-left:10px; margin-top:10px; margin-bottom:10px;" class="md-btn md-fab md-mini m-b indigo"><i class="mdi-content-add" style="font-size:                              18px;vertical-align: 20%;"></i>
-                 </button>
-				<button md-ink-ripple    style="position:absolute; right: 5%; margin-left:10px; margin-top:10px; margin-bottom:10px;"  class="md-btn md-fab md-mini m-b white ">                    <img src="images/excel-icon.png" style="width:25px; height:25px; padding:3px;vertical-align: -2%;"></img>
-                </button>
+                <button md-ink-ripple  data-toggle="modal" data-target="#myModal"  style="position:absolute; right: 5%; margin-left:10px; margin-top:10px; margin-bottom:10px;" class="md-btn md-fab md-mini m-b indigo"><i class="mdi-content-add" style="font-size: 18px;vertical-align: 20%;"></i></button>
+			<!--  <button md-ink-ripple  style="position:absolute; right: 5%; margin-left:10px; margin-top:10px; margin-bottom:10px;" class="md-btn md-fab md-mini m-b white "><img src="images/excel-icon.png" style="width:25px; height:25px; padding:3px;vertical-align: -2%;"></img></button> -->
 				</div>
 			    
 				 <kendo-grid id="kGrid" options="mainGridOptions"> </kendo-grid>
@@ -842,63 +840,75 @@
 												<md-content class="md-padding">
 												   
 												<form name="projectForm">
-												  <md-input-container>
+                                                  <div layout layout-md="column">
+                                                     <md-input-container style="width:48%; padding-right:20px;">
 													<label style="font-size:13px; font-style:normal; font-weight:normal;">Customer Code</label>
-													<input required name="CreditStatus" ng-model="project.CreditStatus">
-													<div ng-messages="projectForm.CreditStatus.$error">
+													<input   required name="CreditStatus" ng-model="project.CreditStatus">
+													
+                                                    <div ng-messages="projectForm.CreditStatus.$error" ng-if='myForm.myControl.$dirty' >
 													  <div ng-message="required">This is required.</div>
 													</div>
 												  </md-input-container>
-												  <md-input-container>
+												  <md-input-container  style="width:50%">
 													<label style="font-size:13px; font-style:normal; font-weight:normal;">Customer Name</label>
 													<input required name="CreditName" ng-model="project.Name">
-													<div ng-messages="projectForm.CreditType.$error">
+													<div ng-messages="projectForm.CreditType.$error" ng-if='myForm.myControl.$dirty' >
 													  <div ng-message="required">This is required.</div>
 													</div>
 												  </md-input-container>
-												  <md-input-container>
+                                                    </div>   
+                                                    <div layout layout-md="column">    
+												  <md-input-container style="width:48%; padding-right:20px;">
 													<label style="font-size:13px; font-style:normal; font-weight:normal;">Customer Type</label>
-													<input required name="OutstandingCashMemo" ng-model="project.OutstandingCashMemo">
-													<div ng-messages="projectForm.OutstandingCashMemo.$error">
+													<input required name="OutstandingCashMemo" ng-model="project.OutstandingCashMemo" >
+													<div ng-messages="projectForm.OutstandingCashMemo.$error" ng-if='myForm.myControl.$dirty'>
 													  <div ng-message="required">This is required.</div>
 													</div>
 												  </md-input-container>
-												  <md-input-container>
+												  <md-input-container style="width:50%" >
 													<label style="font-size:13px; font-style:normal; font-weight:normal;">Operating Unit</label>
 													<input required name="OperationUnit" ng-model="project.OperationUnit">
-													<div ng-messages="projectForm.OperationUnit.$error">
+													<div ng-messages="projectForm.OperationUnit.$error" ng-if='myForm.myControl.$dirty'>
 													  <div ng-message="required">This is required.</div>
 													</div>
 												  </md-input-container>
-												   <md-input-container>
+                                                    </div> 
+                                               
+                                                    <div layout layout-md="column"> 
+                                                     	   <md-input-container style="width:48%; padding-right:20px;">
 													<label style="font-size:13px; font-style:normal; font-weight:normal;">Classification</label>
-													<input required name="CreditStatus" ng-model="project.CreditStatus">
-													<div ng-messages="projectForm.CreditStatus.$error">
+													<input required name="CreditStatus" ng-model="project.CreditStatus" >
+													<div ng-messages="projectForm.CreditStatus.$error" ng-if='myForm.myControl.$dirty'>
 													  <div ng-message="required">This is required.</div>
 													</div>
-												  </md-input-container>
-												  <md-input-container>
+												  </md-input-container >
+												  <md-input-container style="width:50%;">
 													<label style="font-size:13px; font-style:normal; font-weight:normal;">Payment Type</label>
 													<input required name="CreditType" ng-model="project.CreditType">
-													<div ng-messages="projectForm.CreditType.$error">
+													<div ng-messages="projectForm.CreditType.$error" ng-if='myForm.myControl.$dirty'>
 													  <div ng-message="required">This is required.</div>
 													</div>
 												  </md-input-container>
-												  <md-input-container>
+											
+                                                    </div>
+                                                
+                                                    <div layout layout-md="column"> 
+												  <md-input-container style="width:48%; padding-right:20px;">
 													<label style="font-size:13px; font-style:normal; font-weight:normal;">Location</label>
 													<input required name="OutstandingCashMemo" ng-model="project.OutstandingCashMemo">
-													<div ng-messages="projectForm.OutstandingCashMemo.$error">
+													<div ng-messages="projectForm.OutstandingCashMemo.$error" ng-if='myForm.myControl.$dirty'>
 													  <div ng-message="required">This is required.</div>
 													</div>
 												  </md-input-container>
-												  <md-input-container>
+												  <md-input-container style="width:50%; ">
 													<label style="font-size:13px; font-style:normal; font-weight:normal;">Tax Rate</label>
 													<input required name="OperationUnit" ng-model="project.OperationUnit">
-													<div ng-messages="projectForm.OperationUnit.$error">
+													<div ng-messages="projectForm.OperationUnit.$error" ng-if='myForm.myControl.$dirty' >
 													  <div ng-message="required">This is required.</div>
 													</div>
 												  </md-input-container>
-												
+                                                    </div>
+                                                    
 												 </form>
  
 											
@@ -912,28 +922,28 @@
 												  <md-input-container>
 													<label style="font-size:13px; font-style:normal; font-weight:normal;">Credit Status</label>
 													<input required name="CreditStatus" ng-model="project.CreditStatus">
-													<div ng-messages="projectForm.CreditStatus.$error">
+													<div ng-messages="projectForm.CreditStatus.$error" ng-if='myForm.myControl.$dirty' >
 													  <div ng-message="required">This is required.</div>
 													</div>
 												  </md-input-container>
 												  <md-input-container>
 													<label style="font-size:13px; font-style:normal; font-weight:normal;">Credit Limit</label>
 													<input required name="CreditType" ng-model="project.CreditType">
-													<div ng-messages="projectForm.CreditType.$error">
+													<div ng-messages="projectForm.CreditType.$error" ng-if='myForm.myControl.$dirty'>
 													  <div ng-message="required">This is required.</div>
 													</div>
 												  </md-input-container>
 												  <md-input-container>
 													<label style="font-size:13px; font-style:normal; font-weight:normal;">Outstanding Cash Memo</label>
 													<input required name="OutstandingCashMemo" ng-model="project.OutstandingCashMemo">
-													<div ng-messages="projectForm.OutstandingCashMemo.$error">
+													<div ng-messages="projectForm.OutstandingCashMemo.$error" ng-if='myForm.myControl.$dirty'>
 													  <div ng-message="required">This is required.</div>
 													</div>
 												  </md-input-container>
 												  <md-input-container>
 													<label style="font-size:13px; font-style:normal; font-weight:normal;">Total Outstanding Amount</label>
 													<input required name="OperationUnit" ng-model="project.OperationUnit">
-													<div ng-messages="projectForm.OperationUnit.$error">
+													<div ng-messages="projectForm.OperationUnit.$error" ng-if='myForm.myControl.$dirty'>
 													  <div ng-message="required">This is required.</div>
 													</div>
 												  </md-input-container>
@@ -950,8 +960,9 @@
 				    </div>
 				
                   <div class="modal-footer">
-				    <button type = "button" md-ink-ripple  class="md-btn md-raised indigo p-h-md" data-dismiss="modal">Close</button>
-					<button type = "button" md-ink-ripple  class="md-btn md-raised indigo p-h-md" data-dismiss="modal">Save</button>
+				      
+                      <button type = "button" md-ink-ripple  class="md-btn md-flat m-b btn-fw text-primary" data-dismiss="modal">Close</button>
+					<button type = "button" md-ink-ripple  class="md-btn md-flat m-b btn-fw text-primary" data-dismiss="modal">Save</button>
                   </div>
                 </div>
               </div>
